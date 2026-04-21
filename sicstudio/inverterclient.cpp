@@ -25,6 +25,12 @@ InverterClient::InverterClient(DictionaryModel *model, QObject *parent)
     m_dictFinalizeTimer.setInterval(250);
     connect(&m_dictFinalizeTimer, &QTimer::timeout, this, &InverterClient::finalizeDictionary);
 
+    // Stream samples can arrive far faster than the UI can redraw table rows.
+    // Coalesce per-address value updates and flush at a bounded rate.
+    m_streamUiFlushTimer.setSingleShot(true);
+    m_streamUiFlushTimer.setInterval(50);
+    connect(&m_streamUiFlushTimer, &QTimer::timeout, this, &InverterClient::flushPendingStreamValues);
+
     setStatus(QStringLiteral("Disconnected"));
 }
 
@@ -36,6 +42,11 @@ bool InverterClient::connected() const
 QString InverterClient::status() const
 {
     return m_status;
+}
+
+bool InverterClient::streamActive() const
+{
+    return m_streamActive;
 }
 
 void InverterClient::connectToDevice(const QString &host, int port)
@@ -60,6 +71,7 @@ void InverterClient::disconnectFromDevice()
 {
     m_tcp.disconnectFromHost();
     m_udp.close();
+    resetStreamRuntimeState();
     setStatus(QStringLiteral("Disconnected"));
 }
 
@@ -175,6 +187,16 @@ void InverterClient::startStream(int streamId, int loopDivider, const QVariantLi
         return;
     }
 
+    if (m_activeStreamId >= 0 && m_activeStreamId != streamId) {
+        const quint8 previousStreamId = static_cast<quint8>(m_activeStreamId);
+        QByteArray stopPayload;
+        stopPayload.append(static_cast<char>(previousStreamId));
+        sendFrame(CmdStreamStop, stopPayload);
+    }
+
+    resetStreamRuntimeState();
+    setStreamActive(false);
+
     QByteArray payload;
     payload.reserve(2 + addresses.size() * 2);
 
@@ -205,6 +227,10 @@ void InverterClient::startStream(int streamId, int loopDivider, const QVariantLi
     m_streamSampleSize.remove(static_cast<quint8>(streamId));
     m_lastSequence.remove(static_cast<quint8>(streamId));
     m_firstStreamTick.remove(static_cast<quint8>(streamId));
+    m_lastStreamTick.remove(static_cast<quint8>(streamId));
+    m_pendingStreamUiValues.clear();
+    m_pendingReadAddresses.clear();
+    m_activeStreamId = streamId;
 
     sendFrame(CmdStreamReq, payload);
     setStatus(QStringLiteral("Stream request: id=%1 divider=%2 count=%3")
@@ -232,9 +258,26 @@ void InverterClient::stopStream(int streamId)
     m_streamSampleSize.remove(static_cast<quint8>(streamId));
     m_lastSequence.remove(static_cast<quint8>(streamId));
     m_firstStreamTick.remove(static_cast<quint8>(streamId));
+    m_lastStreamTick.remove(static_cast<quint8>(streamId));
+    m_pendingStreamUiValues.clear();
+    m_pendingReadAddresses.clear();
+    if (m_activeStreamId == streamId) {
+        m_activeStreamId = -1;
+        setStreamActive(false);
+    }
 
     sendFrame(CmdStreamStop, payload);
     setStatus(QStringLiteral("Stream stop request: id=%1").arg(streamId));
+}
+
+void InverterClient::stopActiveStream()
+{
+    if (m_activeStreamId < 0 || m_activeStreamId > 255) {
+        setStatus(QStringLiteral("No active stream to stop"));
+        return;
+    }
+
+    stopStream(m_activeStreamId);
 }
 
 void InverterClient::commitConfig()
@@ -266,14 +309,47 @@ void InverterClient::onTcpConnected()
 void InverterClient::onTcpDisconnected()
 {
     m_udp.close();
+    resetStreamRuntimeState();
+    setStatus(QStringLiteral("Disconnected"));
+    emit connectedChanged();
+}
+
+void InverterClient::resetStreamRuntimeState()
+{
     m_streamAddressOrder.clear();
     m_streamSampleSize.clear();
     m_lastSequence.clear();
     m_firstStreamTick.clear();
+    m_lastStreamTick.clear();
+    m_pendingStreamUiValues.clear();
+    m_pendingReadAddresses.clear();
+    m_streamUiFlushTimer.stop();
     m_streamClock.invalidate();
     m_streamClockStarted = false;
-    setStatus(QStringLiteral("Disconnected"));
-    emit connectedChanged();
+    m_activeStreamId = -1;
+    setStreamActive(false);
+}
+
+void InverterClient::setStreamActive(bool active)
+{
+    if (m_streamActive == active) {
+        return;
+    }
+
+    m_streamActive = active;
+    emit streamActiveChanged();
+}
+
+void InverterClient::flushPendingStreamValues()
+{
+    if (m_model == nullptr || m_pendingStreamUiValues.isEmpty()) {
+        return;
+    }
+
+    for (auto it = m_pendingStreamUiValues.cbegin(); it != m_pendingStreamUiValues.cend(); ++it) {
+        m_model->updateValue(it.key(), it.value());
+    }
+    m_pendingStreamUiValues.clear();
 }
 
 void InverterClient::onTcpError(QAbstractSocket::SocketError socketError)
@@ -405,6 +481,11 @@ void InverterClient::handleFrame(quint8 cmd, const QByteArray &payload)
             m_streamSampleSize.remove(static_cast<quint8>(streamId));
             m_lastSequence.remove(static_cast<quint8>(streamId));
             m_firstStreamTick.remove(static_cast<quint8>(streamId));
+            m_lastStreamTick.remove(static_cast<quint8>(streamId));
+            if (m_activeStreamId == streamId) {
+                m_activeStreamId = -1;
+                setStreamActive(false);
+            }
             setStatus(QStringLiteral("Stream stopped: id=%1").arg(streamId));
         }
         return;
@@ -690,6 +771,10 @@ void InverterClient::handleStreamAck(const QByteArray &payload)
     m_streamSampleSize.insert(streamId, sampleSizeBytes);
     m_lastSequence.remove(streamId);
     m_firstStreamTick.remove(streamId);
+    m_lastStreamTick.remove(streamId);
+    if (m_activeStreamId == static_cast<int>(streamId)) {
+        setStreamActive(true);
+    }
     setStatus(QStringLiteral("Stream active: id=%1 count=%2").arg(streamId).arg(count));
 }
 
@@ -786,10 +871,27 @@ void InverterClient::handleUdpDatagram(const QByteArray &datagram)
         m_lastSequence.insert(streamId, seq);
 
         quint64 tick0 = m_firstStreamTick.value(streamId, tick);
+        bool rebaseTickOrigin = false;
         if (!m_firstStreamTick.contains(streamId)) {
             m_firstStreamTick.insert(streamId, tick);
             tick0 = tick;
+            rebaseTickOrigin = true;
         }
+
+        if (m_lastStreamTick.contains(streamId) && tick < m_lastStreamTick.value(streamId)) {
+            rebaseTickOrigin = true;
+        }
+
+        if (tick < tick0) {
+            rebaseTickOrigin = true;
+        }
+
+        if (rebaseTickOrigin) {
+            m_firstStreamTick.insert(streamId, tick);
+            tick0 = tick;
+        }
+
+        m_lastStreamTick.insert(streamId, tick);
         const double tSec = static_cast<double>(tick - tick0) / m_streamTicksPerSecond;
 
         for (int i = 0; i < addresses.size(); ++i) {
@@ -808,7 +910,7 @@ void InverterClient::handleUdpDatagram(const QByteArray &datagram)
             }
             offset += len;
 
-            m_model->updateValue(addr, decoded);
+            m_pendingStreamUiValues.insert(addr, decoded);
 
             PlotSample sample;
             sample.address = static_cast<int>(addr);
@@ -820,8 +922,9 @@ void InverterClient::handleUdpDatagram(const QByteArray &datagram)
     }
 
     if (!batch.isEmpty()) {
+        if (!m_streamUiFlushTimer.isActive()) {
+            m_streamUiFlushTimer.start();
+        }
         emit streamSamplesReady(batch);
-        const PlotSample &lastPoint = batch.constLast();
-        emit streamSample(lastPoint.address, lastPoint.name, lastPoint.tSec, lastPoint.value);
     }
 }

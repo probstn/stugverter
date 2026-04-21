@@ -16,8 +16,8 @@
                             "type": "int"
                         }
                     ],
-                    "index": 12,
-                    "lineNumber": 26,
+                    "index": 14,
+                    "lineNumber": 28,
                     "name": "connectToDevice",
                     "returnType": "void"
                 },
@@ -29,23 +29,23 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 13,
+                    "index": 15,
                     "isCloned": true,
-                    "lineNumber": 26,
+                    "lineNumber": 28,
                     "name": "connectToDevice",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 14,
-                    "lineNumber": 27,
+                    "index": 16,
+                    "lineNumber": 29,
                     "name": "disconnectFromDevice",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 15,
-                    "lineNumber": 29,
+                    "index": 17,
+                    "lineNumber": 31,
                     "name": "requestDictionary",
                     "returnType": "void"
                 },
@@ -57,15 +57,15 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 16,
-                    "lineNumber": 30,
+                    "index": 18,
+                    "lineNumber": 32,
                     "name": "readAddresses",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 17,
-                    "lineNumber": 31,
+                    "index": 19,
+                    "lineNumber": 33,
                     "name": "readAllDictionaryValues",
                     "returnType": "void"
                 },
@@ -81,8 +81,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 18,
-                    "lineNumber": 32,
+                    "index": 20,
+                    "lineNumber": 34,
                     "name": "writeValue",
                     "returnType": "void"
                 },
@@ -102,8 +102,8 @@
                             "type": "QVariantList"
                         }
                     ],
-                    "index": 19,
-                    "lineNumber": 33,
+                    "index": 21,
+                    "lineNumber": 35,
                     "name": "startStream",
                     "returnType": "void"
                 },
@@ -115,15 +115,22 @@
                             "type": "int"
                         }
                     ],
-                    "index": 20,
-                    "lineNumber": 34,
+                    "index": 22,
+                    "lineNumber": 36,
                     "name": "stopStream",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
-                    "index": 21,
-                    "lineNumber": 35,
+                    "index": 23,
+                    "lineNumber": 37,
+                    "name": "stopActiveStream",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 24,
+                    "lineNumber": 38,
                     "name": "commitConfig",
                     "returnType": "void"
                 }
@@ -163,6 +170,23 @@
                     "type": "QString",
                     "user": false,
                     "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 19,
+                    "name": "streamActive",
+                    "notify": "streamActiveChanged",
+                    "override": false,
+                    "read": "streamActive",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
                 }
             ],
             "qualifiedClassName": "InverterClient",
@@ -170,21 +194,28 @@
                 {
                     "access": "public",
                     "index": 0,
-                    "lineNumber": 38,
+                    "lineNumber": 41,
                     "name": "connectedChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 39,
+                    "lineNumber": 42,
                     "name": "statusChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 40,
+                    "lineNumber": 43,
+                    "name": "streamActiveChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 44,
                     "name": "dictionaryReloaded",
                     "returnType": "void"
                 },
@@ -208,8 +239,8 @@
                             "type": "double"
                         }
                     ],
-                    "index": 3,
-                    "lineNumber": 41,
+                    "index": 4,
+                    "lineNumber": 45,
                     "name": "streamSample",
                     "returnType": "void"
                 },
@@ -221,8 +252,8 @@
                             "type": "QList<PlotSample>"
                         }
                     ],
-                    "index": 4,
-                    "lineNumber": 42,
+                    "index": 5,
+                    "lineNumber": 46,
                     "name": "streamSamplesReady",
                     "returnType": "void"
                 },
@@ -234,8 +265,8 @@
                             "type": "QString"
                         }
                     ],
-                    "index": 5,
-                    "lineNumber": 43,
+                    "index": 6,
+                    "lineNumber": 47,
                     "name": "commandError",
                     "returnType": "void"
                 }
@@ -243,15 +274,15 @@
             "slots": [
                 {
                     "access": "private",
-                    "index": 6,
-                    "lineNumber": 46,
+                    "index": 7,
+                    "lineNumber": 50,
                     "name": "onTcpConnected",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 7,
-                    "lineNumber": 47,
+                    "index": 8,
+                    "lineNumber": 51,
                     "name": "onTcpDisconnected",
                     "returnType": "void"
                 },
@@ -263,30 +294,37 @@
                             "type": "QAbstractSocket::SocketError"
                         }
                     ],
-                    "index": 8,
-                    "lineNumber": 48,
+                    "index": 9,
+                    "lineNumber": 52,
                     "name": "onTcpError",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 9,
-                    "lineNumber": 49,
+                    "index": 10,
+                    "lineNumber": 53,
                     "name": "onTcpReadyRead",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 10,
-                    "lineNumber": 50,
+                    "index": 11,
+                    "lineNumber": 54,
                     "name": "onUdpReadyRead",
                     "returnType": "void"
                 },
                 {
                     "access": "private",
-                    "index": 11,
-                    "lineNumber": 51,
+                    "index": 12,
+                    "lineNumber": 55,
                     "name": "finalizeDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 13,
+                    "lineNumber": 56,
+                    "name": "flushPendingStreamValues",
                     "returnType": "void"
                 }
             ],

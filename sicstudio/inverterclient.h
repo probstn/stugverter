@@ -16,12 +16,14 @@ class InverterClient : public QObject
     Q_OBJECT
     Q_PROPERTY(bool connected READ connected NOTIFY connectedChanged)
     Q_PROPERTY(QString status READ status NOTIFY statusChanged)
+    Q_PROPERTY(bool streamActive READ streamActive NOTIFY streamActiveChanged)
 
 public:
     explicit InverterClient(DictionaryModel *model, QObject *parent = nullptr);
 
     bool connected() const;
     QString status() const;
+    bool streamActive() const;
 
     Q_INVOKABLE void connectToDevice(const QString &host, int port = 3030);
     Q_INVOKABLE void disconnectFromDevice();
@@ -32,11 +34,13 @@ public:
     Q_INVOKABLE void writeValue(int address, const QString &valueText);
     Q_INVOKABLE void startStream(int streamId, int loopDivider, const QVariantList &addresses);
     Q_INVOKABLE void stopStream(int streamId);
+    Q_INVOKABLE void stopActiveStream();
     Q_INVOKABLE void commitConfig();
 
 signals:
     void connectedChanged();
     void statusChanged();
+    void streamActiveChanged();
     void dictionaryReloaded();
     void streamSample(int address, QString name, double tSec, double value);
     void streamSamplesReady(const QVector<PlotSample> &samples);
@@ -49,6 +53,7 @@ private slots:
     void onTcpReadyRead();
     void onUdpReadyRead();
     void finalizeDictionary();
+    void flushPendingStreamValues();
 
 private:
     static constexpr quint8 Start0 = 0xAA;
@@ -75,6 +80,7 @@ private:
     QTcpSocket m_tcp;
     QUdpSocket m_udp;
     QTimer m_dictFinalizeTimer;
+    QTimer m_streamUiFlushTimer;
 
     QByteArray m_tcpBuffer;
     QString m_status;
@@ -86,11 +92,17 @@ private:
     QHash<quint8, int> m_streamSampleSize;
     QHash<quint8, quint16> m_lastSequence;
     QHash<quint8, quint64> m_firstStreamTick;
+    QHash<quint8, quint64> m_lastStreamTick;
+    QHash<quint16, QVariant> m_pendingStreamUiValues;
+    int m_activeStreamId = -1;
+    bool m_streamActive = false;
     QElapsedTimer m_streamClock;
     bool m_streamClockStarted = false;
     double m_streamTicksPerSecond = 100000000.0;
 
     void setStatus(const QString &text);
+    void setStreamActive(bool active);
+    void resetStreamRuntimeState();
 
     void sendFrame(quint8 cmd, const QByteArray &payload);
     void processTcpBuffer();

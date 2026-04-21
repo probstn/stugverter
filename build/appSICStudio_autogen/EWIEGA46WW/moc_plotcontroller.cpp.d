@@ -745,6 +745,7 @@
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include/ptrcheck.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include/stdarg.h \
   /Users/niklasprobst/Desktop/Stugverter/sicstudio/plotsample.h \
+  /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/QElapsedTimer \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/QHash \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/QList \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/QMetaType \
@@ -798,6 +799,7 @@
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qdatastream.h \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qdeadlinetimer.h \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qdebug.h \
+  /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qelapsedtimer.h \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qeventloop.h \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qexceptionhandling.h \
   /Users/niklasprobst/Qt/6.11.0/macos/lib/QtCore.framework/Versions/A/Headers/qflags.h \

@@ -21,11 +21,6 @@ int main(int argc, char *argv[])
     PlotController plotController;
 
     QObject::connect(&inverterClient,
-                     &InverterClient::streamSample,
-                     &plotController,
-                     &PlotController::ingestSample,
-                     Qt::QueuedConnection);
-    QObject::connect(&inverterClient,
                      &InverterClient::streamSamplesReady,
                      &plotController,
                      &PlotController::ingestSamples,

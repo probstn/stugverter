@@ -85,7 +85,7 @@ class StreamState:
     stream_id: int
     loop_divider: int
     addresses: List[int]
-    next_emit_s: float
+    next_emit_tick: int
     seq: int = 0
 
 
@@ -218,9 +218,12 @@ class InverterSimulator:
 
         self.streams: Dict[int, StreamState] = {}
         self.stats = StreamStats(last_report_s=time.monotonic())
-        self.session_start_s = time.monotonic()
+        self.cpu_start_s = time.monotonic()
 
         self.udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    def _current_system_tick(self) -> int:
+        return int((time.monotonic() - self.cpu_start_s) * self.tick_hz)
 
     def serve_forever(self) -> None:
         listen_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -434,12 +437,12 @@ class InverterSimulator:
             self._send_error(conn, 0x0000, ERR_OTHER)
             return
 
-        now = time.monotonic()
+        now_tick = self._current_system_tick()
         self.streams[stream_id] = StreamState(
             stream_id=stream_id,
             loop_divider=loop_divider,
             addresses=addresses,
-            next_emit_s=now,
+            next_emit_tick=now_tick,
         )
 
         ack = bytearray([stream_id, len(addresses)])
@@ -519,7 +522,7 @@ class InverterSimulator:
         return values
 
     def _update_dynamic_values(self) -> None:
-        t = time.monotonic() - self.session_start_s
+        t = time.monotonic() - self.cpu_start_s
         self.live_values.update(self._dynamic_values_at(t))
 
     def _value_at_time(self, address: int, sample_time_s: float) -> int | float:
@@ -527,16 +530,16 @@ class InverterSimulator:
         if spec.access != ACCESS_READ_ONLY:
             return self.live_values[address]
 
-        dynamic = self._dynamic_values_at(sample_time_s - self.session_start_s)
+        dynamic = self._dynamic_values_at(sample_time_s)
         return dynamic[address]
 
     def _emit_streams(self, peer_ip: str) -> None:
-        now = time.monotonic()
-        loop_step_s = 1.0 / self.loop_hz
+        now_tick = self._current_system_tick()
+        period_tick = max(1, int(round(self.tick_hz / self.loop_hz)))
 
         for stream in list(self.streams.values()):
-            period = stream.loop_divider * loop_step_s
-            if now < stream.next_emit_s:
+            stream_period_ticks = max(1, stream.loop_divider * period_tick)
+            if now_tick < stream.next_emit_tick:
                 continue
 
             sample_size = 0
@@ -547,7 +550,7 @@ class InverterSimulator:
             sample_frame_size = 2 + 8 + sample_size
             max_samples_per_packet = max(1, (MAX_PAYLOAD - 4) // sample_frame_size)
 
-            samples_to_emit = int((now - stream.next_emit_s) / period) + 1
+            samples_to_emit = ((now_tick - stream.next_emit_tick) // stream_period_ticks) + 1
             while samples_to_emit > 0:
                 emit_now = min(samples_to_emit, max_samples_per_packet)
                 datagram = bytearray(START_BYTES)
@@ -555,8 +558,8 @@ class InverterSimulator:
                 datagram.append(emit_now)
 
                 for _ in range(emit_now):
-                    sample_time_s = stream.next_emit_s
-                    tick = int((sample_time_s - self.session_start_s) * self.tick_hz) & 0xFFFFFFFFFFFFFFFF
+                    tick = stream.next_emit_tick & 0xFFFFFFFFFFFFFFFF
+                    sample_time_s = tick / self.tick_hz
 
                     datagram.extend(struct.pack("<H", stream.seq & 0xFFFF))
                     datagram.extend(struct.pack("<Q", tick))
@@ -567,7 +570,7 @@ class InverterSimulator:
                         datagram.extend(encode_typed(spec.type_code, value))
 
                     stream.seq = (stream.seq + 1) & 0xFFFF
-                    stream.next_emit_s += period
+                    stream.next_emit_tick += stream_period_ticks
 
                 data = bytes(datagram)
                 self.udp_sock.sendto(data, (peer_ip, self.udp_port))

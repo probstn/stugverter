@@ -20,9 +20,7 @@ ApplicationWindow {
     property var plotControllerObj: plotController
 
     property var lineSeriesByAddress: ({})
-    property var latestPointsByAddress: ({})
     property var colorByAddress: ({})
-    property var latestValueByAddress: ({})
     property var seriesPalette: ["#00a6a6", "#f95738", "#3867d6", "#ff9f1c", "#1a936f", "#6c5ce7", "#c0392b", "#2f4858", "#2d6a4f", "#ec9a29"]
     property bool clearingSeries: false
     property string searchText: ""
@@ -32,12 +30,14 @@ ApplicationWindow {
     property bool xFollowEnabled: false
     property real xFollowSpan: 10
     property bool livePaused: false
+    property bool pausedRefreshPending: false
+    property bool pausedViewRefreshDirty: false
     property real latestSampleTime: 0
     property real xViewMin: 0
     property real xViewMax: 10
     property real yViewMin: -1
     property real yViewMax: 1
-    readonly property real minXSpan: 0.25
+    readonly property real minXSpan: Math.max(0.000001, root.plotControllerObj.minSampleSpacing * 0.5)
     readonly property real minYSpan: 0.0002
 
     readonly property color panelColor: "#ffffff"
@@ -88,8 +88,6 @@ ApplicationWindow {
         root.clearingSeries = true
         const oldMap = root.lineSeriesByAddress
         root.lineSeriesByAddress = ({})
-        root.latestPointsByAddress = ({})
-        root.latestValueByAddress = ({})
         const keys = Object.keys(oldMap)
         for (let i = 0; i < keys.length; ++i) {
             const key = keys[i]
@@ -101,25 +99,164 @@ ApplicationWindow {
         root.clearingSeries = false
     }
 
+    function removeSeriesForAddress(address) {
+        const series = root.lineSeriesByAddress[address]
+        if (!series) {
+            return
+        }
+        mainTrendView.removeSeries(series)
+        delete root.lineSeriesByAddress[address]
+    }
+
     function currentXSpan() {
         return Math.max(root.minXSpan, root.xViewMax - root.xViewMin)
     }
 
-    function updateRenderResolutionFromView() {
-        root.plotControllerObj.renderWindowSeconds = currentXSpan()
+    function formatSampleRate(rate) {
+        const safeRate = Math.max(0, Number(rate))
+        if (safeRate >= 1000000) {
+            return (safeRate / 1000000).toFixed(2) + " MS/s"
+        }
+        if (safeRate >= 1000) {
+            return (safeRate / 1000).toFixed(1) + " kS/s"
+        }
+        return safeRate.toFixed(0) + " S/s"
     }
 
-    function refreshSeriesFromLatestCache() {
-        const keys = Object.keys(root.lineSeriesByAddress)
-        for (let i = 0; i < keys.length; ++i) {
-            const key = keys[i]
-            const address = Number(key)
-            const series = root.lineSeriesByAddress[key]
-            const points = root.latestPointsByAddress[address]
-            if (series && points && points.length > 0) {
-                series.replace(points)
-            }
+    function formatNumberCompact(value) {
+        const v = Math.max(0, Number(value))
+        if (v >= 1000000) {
+            return (v / 1000000).toFixed(2) + "M"
         }
+        if (v >= 1000) {
+            return (v / 1000).toFixed(1) + "k"
+        }
+        return v.toFixed(0)
+    }
+
+    function inputRateColor() {
+        const rate = root.plotControllerObj.inputSamplesPerSecond
+        if (rate >= 95000) {
+            return "#0b8f52"
+        }
+        if (rate >= 70000) {
+            return "#b57600"
+        }
+        return "#b73a3a"
+    }
+
+    function clampXViewToBuffer() {
+        const minSpan = root.minXSpan
+        let span = Math.max(minSpan, root.xViewMax - root.xViewMin)
+        const bufferMin = root.plotControllerObj.bufferMinX
+        const bufferMax = root.plotControllerObj.bufferMaxX
+
+        if (bufferMax > bufferMin) {
+            const bufferSpan = Math.max(minSpan, bufferMax - bufferMin)
+            if (span >= bufferSpan) {
+                root.xViewMin = bufferMin
+                root.xViewMax = bufferMax
+                return
+            }
+
+            if (root.xViewMin < bufferMin) {
+                root.xViewMin = bufferMin
+                root.xViewMax = root.xViewMin + span
+            }
+            if (root.xViewMax > bufferMax) {
+                root.xViewMax = bufferMax
+                root.xViewMin = root.xViewMax - span
+            }
+
+            root.xViewMin = Math.max(bufferMin, root.xViewMin)
+            root.xViewMax = Math.min(bufferMax, root.xViewMax)
+            if (root.xViewMax <= root.xViewMin) {
+                root.xViewMin = bufferMin
+                root.xViewMax = Math.min(bufferMax, bufferMin + minSpan)
+            }
+            return
+        }
+
+        if (root.xViewMax <= root.xViewMin) {
+            root.xViewMax = root.xViewMin + minSpan
+        }
+    }
+
+    function schedulePausedViewRefresh() {
+        root.pausedViewRefreshDirty = true
+        if (!pausedViewRefreshTimer.running) {
+            pausedViewRefreshTimer.start()
+        }
+    }
+
+    function updateRenderResolutionFromView() {
+        root.clampXViewToBuffer()
+        const span = currentXSpan()
+        root.plotControllerObj.renderWindowSeconds = span
+        if (root.livePaused) {
+            root.schedulePausedViewRefresh()
+        } else {
+            root.plotControllerObj.clearViewFrame()
+            root.plotControllerObj.windowSeconds = span
+            root.pausedRefreshPending = false
+        }
+    }
+
+    function pauseLiveStream() {
+        if (!root.inverterClientObj.connected || !root.inverterClientObj.streamActive) {
+            return
+        }
+
+        root.inverterClientObj.stopActiveStream()
+        root.livePaused = true
+        root.xFollowEnabled = false
+        root.xViewManual = true
+        root.yViewManual = true
+        root.updateRenderResolutionFromView()
+    }
+
+    function playLiveStream() {
+        if (!root.inverterClientObj.connected) {
+            return
+        }
+
+        const selected = root.dictionaryModelObj.selectedPlotAddresses()
+        if (!selected || selected.length === 0) {
+            return
+        }
+
+        root.plotControllerObj.clear()
+        root.clearGraphSeries()
+        root.plotControllerObj.clearViewFrame()
+
+        root.livePaused = false
+        root.pausedRefreshPending = false
+        root.xFollowEnabled = true
+        root.xViewManual = true
+        root.yViewManual = false
+        root.latestSampleTime = 0
+
+        root.xFollowSpan = Math.max(root.minXSpan, root.xFollowSpan)
+        root.xViewMin = 0
+        root.xViewMax = root.xFollowSpan
+        root.updateRenderResolutionFromView()
+
+        root.inverterClientObj.startStream(streamIdField.value, streamDividerField.value, selected)
+    }
+
+    function resetTrendInteractionState() {
+        root.livePaused = false
+        root.pausedRefreshPending = false
+        root.xFollowEnabled = false
+        root.xViewManual = false
+        root.yViewManual = false
+        root.xViewMin = root.plotControllerObj.xMin
+        root.xViewMax = root.plotControllerObj.xMax
+        root.yViewMin = root.plotControllerObj.yMin
+        root.yViewMax = root.plotControllerObj.yMax
+        root.latestSampleTime = 0
+        root.xFollowSpan = root.currentXSpan()
+        root.updateRenderResolutionFromView()
     }
 
     Connections {
@@ -128,6 +265,23 @@ ApplicationWindow {
         function onDictionaryReloaded() {
             root.plotControllerObj.clear()
             root.clearGraphSeries()
+            root.resetTrendInteractionState()
+        }
+
+        function onConnectedChanged() {
+            if (!root.inverterClientObj.connected) {
+                root.plotControllerObj.clear()
+                root.clearGraphSeries()
+                root.resetTrendInteractionState()
+            }
+        }
+
+        function onStreamActiveChanged() {
+            root.livePaused = !root.inverterClientObj.streamActive
+            if (!root.livePaused) {
+                root.pausedRefreshPending = false
+                root.plotControllerObj.clearViewFrame()
+            }
         }
     }
 
@@ -143,16 +297,11 @@ ApplicationWindow {
 
             if (points.length === 0) {
                 if (series) {
-                    mainTrendView.removeSeries(series)
-                    delete root.lineSeriesByAddress[address]
+                    series.replace([])
                 }
-                delete root.latestPointsByAddress[address]
-                delete root.latestValueByAddress[address]
                 return
             }
 
-            root.latestPointsByAddress[address] = points
-            root.latestValueByAddress[address] = points[points.length - 1].y
             root.latestSampleTime = Math.max(root.latestSampleTime, Number(points[points.length - 1].x))
 
             if (!series) {
@@ -164,7 +313,7 @@ ApplicationWindow {
                 root.lineSeriesByAddress[address] = series
             }
 
-            if (!root.livePaused) {
+            if (!root.livePaused || root.pausedRefreshPending) {
                 series.replace(points)
             }
         }
@@ -172,12 +321,35 @@ ApplicationWindow {
         function onCleared() {
             root.clearGraphSeries()
         }
+
+        function onFrameCompleted() {
+            if (root.pausedRefreshPending) {
+                root.pausedRefreshPending = false
+            }
+        }
+    }
+
+    Timer {
+        id: pausedViewRefreshTimer
+        interval: 8
+        repeat: false
+        onTriggered: {
+            if (!root.livePaused || !root.pausedViewRefreshDirty) {
+                return
+            }
+            root.pausedViewRefreshDirty = false
+            root.pausedRefreshPending = true
+            root.plotControllerObj.requestViewFrame(root.xViewMin, root.xViewMax)
+        }
     }
 
     Component.onCompleted: {
         root.plotControllerObj.windowSeconds = 40
+        root.plotControllerObj.renderWindowSeconds = 40
+        root.plotControllerObj.retentionSeconds = 180
         root.plotControllerObj.maxPointsPerSeries = 5000
-        root.plotControllerObj.targetFps = 120
+        root.plotControllerObj.displayPointBudget = Math.max(800, Math.floor(mainTrendView.width * 2.2))
+        root.plotControllerObj.syncTargetFpsToPrimaryScreen()
         root.plotControllerObj.renderingEnabled = true
         root.xViewMin = root.plotControllerObj.xMin
         root.xViewMax = root.plotControllerObj.xMax
@@ -191,19 +363,20 @@ ApplicationWindow {
         target: root.plotControllerObj
 
         function onAxesChanged() {
+            root.latestSampleTime = root.plotControllerObj.bufferMaxX
             if (root.xFollowEnabled) {
                 root.xViewMax = root.latestSampleTime
-                root.xViewMin = root.xViewMax - root.xFollowSpan
+                root.xViewMin = Math.max(root.plotControllerObj.bufferMinX, root.xViewMax - root.xFollowSpan)
                 root.xViewManual = true
             } else if (!root.xViewManual) {
                 root.xViewMin = root.plotControllerObj.xMin
                 root.xViewMax = root.plotControllerObj.xMax
             }
+            root.clampXViewToBuffer()
             if (!root.yViewManual && !root.livePaused) {
                 root.yViewMin = root.plotControllerObj.yMin
                 root.yViewMax = root.plotControllerObj.yMax
             }
-            root.updateRenderResolutionFromView()
         }
     }
 
@@ -378,15 +551,6 @@ ApplicationWindow {
                                 text: "Commit Configuration"
                                 onClicked: root.inverterClientObj.commitConfig()
                             }
-
-                            Button {
-                                Layout.fillWidth: true
-                                text: "Clear Trend Data"
-                                onClicked: {
-                                    root.plotControllerObj.clear()
-                                    root.clearGraphSeries()
-                                }
-                            }
                         }
 
                         Rectangle {
@@ -429,23 +593,9 @@ ApplicationWindow {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Start Stream"
-                                onClicked: {
-                                    const selected = root.dictionaryModelObj.selectedPlotAddresses()
-                                    root.plotControllerObj.clear()
-                                    root.clearGraphSeries()
-                                    root.inverterClientObj.startStream(streamIdField.value, streamDividerField.value, selected)
-                                }
-                            }
-
-                            Button {
-                                Layout.fillWidth: true
-                                text: "Stop Stream"
-                                onClicked: {
-                                    root.inverterClientObj.stopStream(streamIdField.value)
-                                    root.plotControllerObj.clear()
-                                    root.clearGraphSeries()
-                                }
+                                Layout.columnSpan: 2
+                                text: "Stream control moved to Play/Pause"
+                                enabled: false
                             }
                         }
 
@@ -547,6 +697,9 @@ ApplicationWindow {
                                         onToggled: {
                                             root.dictionaryModelObj.setPlotEnabledByRow(rowDelegate.index, checked)
                                             root.plotControllerObj.setSeriesEnabled(rowDelegate.address, rowDelegate.name, checked)
+                                            if (!checked) {
+                                                root.removeSeriesForAddress(rowDelegate.address)
+                                            }
                                         }
                                     }
 
@@ -661,25 +814,20 @@ ApplicationWindow {
                                         root.xFollowSpan = root.currentXSpan()
                                         root.xFollowEnabled = true
                                         root.xViewManual = true
-                                        root.xViewMax = root.latestSampleTime
-                                        root.xViewMin = root.xViewMax - root.xFollowSpan
+                                        root.xViewMax = root.plotControllerObj.bufferMaxX
+                                        root.xViewMin = Math.max(root.plotControllerObj.bufferMinX, root.xViewMax - root.xFollowSpan)
                                         root.updateRenderResolutionFromView()
+                                        root.plotControllerObj.requestRefresh()
                                     }
                                 }
 
                                 Button {
-                                    text: root.livePaused ? "Resume Live" : "Pause Live"
+                                    text: root.inverterClientObj.streamActive ? "Pause Live" : "Play Live"
                                     onClicked: {
-                                        root.livePaused = !root.livePaused
-                                        if (root.livePaused) {
-                                            root.xFollowEnabled = false
-                                            root.yViewManual = true
+                                        if (root.inverterClientObj.streamActive) {
+                                            root.pauseLiveStream()
                                         } else {
-                                            root.refreshSeriesFromLatestCache()
-                                            root.xFollowSpan = root.currentXSpan()
-                                            root.xFollowEnabled = true
-                                            root.xViewMax = root.latestSampleTime
-                                            root.xViewMin = root.xViewMax - root.xFollowSpan
+                                            root.playLiveStream()
                                         }
                                     }
                                 }
@@ -705,6 +853,9 @@ ApplicationWindow {
                                 id: mainTrendView
                                 anchors.fill: parent
                                 anchors.margins: 6
+                                onWidthChanged: {
+                                    root.plotControllerObj.displayPointBudget = Math.max(800, Math.floor(width * 2.2))
+                                }
 
                                 theme: GraphsTheme {
                                     backgroundColor: "transparent"
@@ -768,6 +919,7 @@ ApplicationWindow {
                                         const xDelta = (-dx / width) * xSpan
                                         root.xViewMin += xDelta
                                         root.xViewMax += xDelta
+                                        root.clampXViewToBuffer()
                                         root.xViewManual = true
                                         root.xFollowEnabled = false
                                     }
@@ -785,16 +937,18 @@ ApplicationWindow {
 
                                     const currentSpan = Math.max(root.minXSpan, root.xViewMax - root.xViewMin)
                                     const zoomFactor = Math.pow(0.86, wheel.angleDelta.y / 120.0)
-                                    const nextSpan = Math.max(root.minXSpan, Math.min(1200.0, currentSpan * zoomFactor))
+                                    const bufferSpan = Math.max(root.minXSpan, root.plotControllerObj.bufferMaxX - root.plotControllerObj.bufferMinX)
+                                    const nextSpan = Math.max(root.minXSpan, Math.min(bufferSpan, currentSpan * zoomFactor))
                                     if (root.xFollowEnabled) {
                                         root.xFollowSpan = nextSpan
-                                        root.xViewMax = root.latestSampleTime
-                                        root.xViewMin = root.xViewMax - nextSpan
+                                        root.xViewMax = root.plotControllerObj.bufferMaxX
+                                        root.xViewMin = Math.max(root.plotControllerObj.bufferMinX, root.xViewMax - nextSpan)
                                     } else {
                                         const pivotRatio = Math.max(0.0, Math.min(1.0, wheel.x / width))
                                         const pivotX = root.xViewMin + currentSpan * pivotRatio
                                         root.xViewMin = pivotX - nextSpan * pivotRatio
                                         root.xViewMax = root.xViewMin + nextSpan
+                                        root.clampXViewToBuffer()
                                     }
                                     root.xViewManual = true
                                     root.updateRenderResolutionFromView()
@@ -846,6 +1000,36 @@ ApplicationWindow {
                                     color: root.textMuted
                                 }
 
+                                Label {
+                                    text: "RX " + root.formatSampleRate(root.plotControllerObj.inputSamplesPerSecond)
+                                    color: root.inputRateColor()
+                                    font.bold: true
+                                }
+
+                                Label {
+                                    text: "Draw " + root.formatSampleRate(root.plotControllerObj.outputPointsPerSecond)
+                                        + " @ " + root.plotControllerObj.renderFramesPerSecond.toFixed(1) + " FPS"
+                                    color: root.textMuted
+                                }
+
+                                Label {
+                                    text: "Frame " + root.plotControllerObj.lastFrameBuildMs.toFixed(2)
+                                        + " ms (avg " + root.plotControllerObj.avgFrameBuildMs.toFixed(2) + ")"
+                                    color: root.textMuted
+                                }
+
+                                Label {
+                                    text: "Decim " + root.plotControllerObj.decimationRatio.toFixed(2) + "x"
+                                        + " | visible " + root.formatNumberCompact(root.plotControllerObj.displayedPointCount)
+                                        + " | budget " + root.formatNumberCompact(root.plotControllerObj.displayPointBudget)
+                                    color: root.textMuted
+                                }
+
+                                Label {
+                                    text: "Coalesced req " + root.formatNumberCompact(root.plotControllerObj.coalescedFrameRequests)
+                                    color: root.textMuted
+                                }
+
                                 Rectangle {
                                     width: 9
                                     height: 9
@@ -854,7 +1038,7 @@ ApplicationWindow {
                                 }
 
                                 Label {
-                                    text: root.inverterClientObj.connected ? "stream active" : "stream idle"
+                                    text: root.inverterClientObj.streamActive ? "stream active" : "stream idle"
                                     color: root.textMuted
                                 }
                             }
