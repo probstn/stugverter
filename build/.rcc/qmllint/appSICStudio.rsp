@@ -1,0 +1,14 @@
+--bare
+-I
+/Users/niklasprobst/Desktop/Stugverter/build
+-I
+/Users/niklasprobst/Desktop/Stugverter/build/SICStudio
+-I
+/Users/niklasprobst/Desktop/Stugverter/build
+-I
+/Users/niklasprobst/Qt/6.11.0/macos/qml
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_SICStudio.qrc
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appSICStudio_raw_qml_0.qrc
+/Users/niklasprobst/Desktop/Stugverter/sicstudio/Main.qml

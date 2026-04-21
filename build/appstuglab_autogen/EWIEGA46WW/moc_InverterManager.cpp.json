@@ -1,0 +1,173 @@
+{
+    "classes": [
+        {
+            "className": "InverterManager",
+            "lineNumber": 10,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 6,
+                    "isConst": true,
+                    "lineNumber": 21,
+                    "name": "getEntryValue",
+                    "returnType": "QVariant"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "lineNumber": 24,
+                    "name": "readConfiguration",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 8,
+                    "lineNumber": 25,
+                    "name": "writeConfiguration",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "value",
+                            "type": "QVariant"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 26,
+                    "name": "setUserInputValue",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 12,
+                    "name": "dictionary",
+                    "override": false,
+                    "read": "dictionary",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "DictionaryManager*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 13,
+                    "name": "scopeManager",
+                    "override": false,
+                    "read": "scopeManager",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "ScopeManager*",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "InverterManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 29,
+                    "name": "errorOccurred",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 30,
+                    "name": "writeCompleted",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 2,
+                    "lineNumber": 33,
+                    "name": "handleConnectionStatusChange",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "scope",
+                            "type": "Scope*"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 34,
+                    "name": "onScopeAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 35,
+                    "name": "onScopeRemoved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "start",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 36,
+                    "name": "onStreamControlRequested",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "InverterManager.h",
+    "outputRevision": 69
+}

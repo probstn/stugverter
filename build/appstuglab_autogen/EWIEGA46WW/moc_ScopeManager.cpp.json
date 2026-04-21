@@ -1,0 +1,143 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Singleton",
+                    "value": "true"
+                }
+            ],
+            "className": "ScopeManager",
+            "lineNumber": 11,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 23,
+                    "name": "removeScope",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "frequency",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "bufferSize",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 24,
+                    "name": "addScope",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "frequency",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 6,
+                    "isCloned": true,
+                    "lineNumber": 24,
+                    "name": "addScope",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 17,
+                    "name": "scopes",
+                    "notify": "scopesChanged",
+                    "override": false,
+                    "read": "getScopes",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<Scope*>",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "ScopeManager",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 34,
+                    "name": "scopesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "scope",
+                            "type": "Scope*"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 35,
+                    "name": "scopeAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "id",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 36,
+                    "name": "scopeRemoved",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "payload",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 31,
+                    "name": "processStreamPayload",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "ScopeManager.h",
+    "outputRevision": 69
+}

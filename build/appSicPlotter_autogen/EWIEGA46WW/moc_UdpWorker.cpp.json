@@ -1,0 +1,104 @@
+{
+    "classes": [
+        {
+            "className": "UdpWorker",
+            "lineNumber": 9,
+            "object": true,
+            "qualifiedClassName": "UdpWorker",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "sequence",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "quint64"
+                        },
+                        {
+                            "name": "values",
+                            "type": "QList<QVariant>"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 21,
+                    "name": "valuesReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "errorMessage",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 22,
+                    "name": "errorOccurred",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "port",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 16,
+                    "name": "startListening",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 17,
+                    "name": "stopListening",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "entries",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 18,
+                    "name": "setStreamLayout",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "lineNumber": 25,
+                    "name": "processPendingDatagrams",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "UdpWorker.h",
+    "outputRevision": 69
+}

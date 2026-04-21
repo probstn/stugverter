@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_appSICStudio_FILE /Users/niklasprobst/Desktop/Stugverter/build/appSICStudio.app/Contents/MacOS/appSICStudio)
+set(__QT_DEPLOY_TARGET_appSICStudio_TYPE EXECUTABLE)

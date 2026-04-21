@@ -1,0 +1,14 @@
+-rootPath
+/Users/niklasprobst/Desktop/Stugverter/sicstudio
+-cmake-output
+-output-file
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/qml_imports/appSicPlotter_conf.cmake
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build/SicPlotter
+-importPath
+/Users/niklasprobst/Qt/6.11.0/macos/qml
+-qrcFiles
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_SicPlotter.qrc
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appSicPlotter_raw_qml_0.qrc

@@ -1,0 +1,435 @@
+{
+    "classes": [
+        {
+            "className": "Scope",
+            "lineNumber": 14,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "ip",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 18,
+                    "lineNumber": 41,
+                    "name": "connectSystem",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 19,
+                    "lineNumber": 42,
+                    "name": "disconnectSystem",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 20,
+                    "lineNumber": 43,
+                    "name": "requestDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 21,
+                    "lineNumber": 44,
+                    "name": "readConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 22,
+                    "lineNumber": 45,
+                    "name": "writeConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 23,
+                    "lineNumber": 46,
+                    "name": "commitConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 24,
+                    "lineNumber": 47,
+                    "name": "startStreaming",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 25,
+                    "lineNumber": 48,
+                    "name": "stopStreaming",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "scopeIndex",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 26,
+                    "isConst": true,
+                    "lineNumber": 49,
+                    "name": "scopeSeries",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "index": 27,
+                    "isConst": true,
+                    "lineNumber": 50,
+                    "name": "selectedStreamCount",
+                    "returnType": "int"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 17,
+                    "name": "dictionaryModel",
+                    "override": false,
+                    "read": "dictionaryModel",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QObject*",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 18,
+                    "name": "connected",
+                    "notify": "connectedChanged",
+                    "override": false,
+                    "read": "connected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 19,
+                    "name": "streaming",
+                    "notify": "streamingChanged",
+                    "override": false,
+                    "read": "streaming",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 20,
+                    "name": "statusText",
+                    "notify": "statusTextChanged",
+                    "override": false,
+                    "read": "statusText",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 21,
+                    "name": "tcpPort",
+                    "notify": "tcpPortChanged",
+                    "override": false,
+                    "read": "tcpPort",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setTcpPort"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 22,
+                    "name": "udpPort",
+                    "notify": "udpPortChanged",
+                    "override": false,
+                    "read": "udpPort",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setUdpPort"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "lineNumber": 23,
+                    "name": "streamFrequencyHz",
+                    "notify": "streamFrequencyHzChanged",
+                    "override": false,
+                    "read": "streamFrequencyHz",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setStreamFrequencyHz"
+                }
+            ],
+            "qualifiedClassName": "Scope",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 53,
+                    "name": "connectedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 54,
+                    "name": "streamingChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 55,
+                    "name": "statusTextChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 56,
+                    "name": "tcpPortChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 57,
+                    "name": "udpPortChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "lineNumber": 58,
+                    "name": "streamFrequencyHzChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 59,
+                    "name": "scopeDataChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "connected",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 62,
+                    "name": "onTcpConnectedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "dictionary",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 63,
+                    "name": "onDictionaryReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "addresses",
+                            "type": "QList<quint16>"
+                        },
+                        {
+                            "name": "values",
+                            "type": "QList<QVariant>"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 64,
+                    "name": "onReadValuesReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "addresses",
+                            "type": "QList<quint16>"
+                        }
+                    ],
+                    "index": 10,
+                    "lineNumber": 65,
+                    "name": "onStreamConfigured",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 11,
+                    "lineNumber": 66,
+                    "name": "onStreamStopped",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "firstAddress",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "count",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 67,
+                    "name": "onWriteCompleted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 13,
+                    "lineNumber": 68,
+                    "name": "onConfigCommitted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 14,
+                    "lineNumber": 69,
+                    "name": "onWorkerInfo",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 15,
+                    "lineNumber": 70,
+                    "name": "onWorkerError",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "sequence",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "timestamp",
+                            "type": "quint64"
+                        },
+                        {
+                            "name": "values",
+                            "type": "QList<QVariant>"
+                        }
+                    ],
+                    "index": 16,
+                    "lineNumber": 71,
+                    "name": "onUdpValuesReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 17,
+                    "lineNumber": 72,
+                    "name": "onRenderTick",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Scope.h",
+    "outputRevision": 69
+}

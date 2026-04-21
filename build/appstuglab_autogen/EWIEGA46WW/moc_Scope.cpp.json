@@ -1,0 +1,349 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                },
+                {
+                    "name": "QML.Creatable",
+                    "value": "false"
+                },
+                {
+                    "name": "QML.UncreatableReason",
+                    "value": "Scopes are instantiated and managed by ScopeManager"
+                }
+            ],
+            "className": "Scope",
+            "lineNumber": 26,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "dtype",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 54,
+                    "name": "addAddress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 55,
+                    "name": "removeAddress",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 9,
+                    "isConst": true,
+                    "lineNumber": 58,
+                    "name": "getYMin",
+                    "returnType": "float"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 10,
+                    "isConst": true,
+                    "lineNumber": 59,
+                    "name": "getYMax",
+                    "returnType": "float"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "min",
+                            "type": "float"
+                        }
+                    ],
+                    "index": 11,
+                    "lineNumber": 60,
+                    "name": "setYMin",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "max",
+                            "type": "float"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 61,
+                    "name": "setYMax",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 13,
+                    "lineNumber": 63,
+                    "name": "play",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 14,
+                    "lineNumber": 64,
+                    "name": "pause",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "series",
+                            "type": "QXYSeries*"
+                        }
+                    ],
+                    "index": 15,
+                    "lineNumber": 65,
+                    "name": "updateGraphSeries",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 31,
+                    "name": "streamId",
+                    "override": false,
+                    "read": "getStreamID",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "quint8",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 32,
+                    "name": "bufferSize",
+                    "override": false,
+                    "read": "getBufferSize",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 33,
+                    "name": "name",
+                    "notify": "nameChanged",
+                    "override": false,
+                    "read": "getName",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setName"
+                },
+                {
+                    "constant": true,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 34,
+                    "name": "frequency",
+                    "override": false,
+                    "read": "getFrequency",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "float",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 35,
+                    "name": "running",
+                    "notify": "runningChanged",
+                    "override": false,
+                    "read": "isRunning",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 36,
+                    "name": "addresses",
+                    "notify": "addressesChanged",
+                    "override": false,
+                    "read": "getOrderedAddresses",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QList<quint16>",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "lineNumber": 37,
+                    "name": "pointsCount",
+                    "notify": "pointsCountChanged",
+                    "override": false,
+                    "read": "pointsCount",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "Scope",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 70,
+                    "name": "nameChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 71,
+                    "name": "runningChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 72,
+                    "name": "addressesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 73,
+                    "name": "addressAdded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 74,
+                    "name": "addressRemoved",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "start",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 75,
+                    "name": "streamControlRequested",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 76,
+                    "name": "pointsCountChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Scope.h",
+    "outputRevision": 69
+}

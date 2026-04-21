@@ -1,0 +1,302 @@
+{
+    "classes": [
+        {
+            "className": "TcpWorker",
+            "lineNumber": 9,
+            "object": true,
+            "qualifiedClassName": "TcpWorker",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "connected",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 27,
+                    "name": "connectionStatusChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "dictionary",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 28,
+                    "name": "dictionaryReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "addresses",
+                            "type": "QList<quint16>"
+                        },
+                        {
+                            "name": "values",
+                            "type": "QList<QVariant>"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 29,
+                    "name": "readValuesReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "addresses",
+                            "type": "QList<quint16>"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 30,
+                    "name": "streamConfigured",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 31,
+                    "name": "streamStopped",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "firstAddress",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "count",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 32,
+                    "name": "writeCompleted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 33,
+                    "name": "configCommitted",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "message",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 34,
+                    "name": "infoMessage",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "errorMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 35,
+                    "name": "errorOccurred",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "ip",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "port",
+                            "type": "quint16"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 17,
+                    "name": "connectToAurix",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 10,
+                    "lineNumber": 18,
+                    "name": "disconnectFromAurix",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 11,
+                    "lineNumber": 19,
+                    "name": "requestDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "entries",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 20,
+                    "name": "requestReadValues",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "entries",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        },
+                        {
+                            "name": "modifiedOnly",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 13,
+                    "lineNumber": 21,
+                    "name": "writeValues",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "entries",
+                            "type": "QList<Protocol::DictionaryEntry>"
+                        }
+                    ],
+                    "index": 14,
+                    "isCloned": true,
+                    "lineNumber": 21,
+                    "name": "writeValues",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        },
+                        {
+                            "name": "frequencyX100",
+                            "type": "quint16"
+                        },
+                        {
+                            "name": "addresses",
+                            "type": "QList<quint16>"
+                        }
+                    ],
+                    "index": 15,
+                    "lineNumber": 22,
+                    "name": "configureStream",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 16,
+                    "lineNumber": 23,
+                    "name": "stopStream",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 17,
+                    "lineNumber": 24,
+                    "name": "commitConfig",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 18,
+                    "lineNumber": 38,
+                    "name": "onReadyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 19,
+                    "lineNumber": 39,
+                    "name": "onConnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 20,
+                    "lineNumber": 40,
+                    "name": "onDisconnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "socketError",
+                            "type": "QAbstractSocket::SocketError"
+                        }
+                    ],
+                    "index": 21,
+                    "lineNumber": 41,
+                    "name": "onSocketError",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 22,
+                    "lineNumber": 42,
+                    "name": "onDictionaryFlushTimeout",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "TcpWorker.h",
+    "outputRevision": 69
+}

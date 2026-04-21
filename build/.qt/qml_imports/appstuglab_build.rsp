@@ -1,0 +1,14 @@
+-rootPath
+/Users/niklasprobst/Desktop/Stugverter/stuglab
+-cmake-output
+-output-file
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/qml_imports/appstuglab_build.cmake
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build/stuglab
+-importPath
+/Users/niklasprobst/Qt/6.11.0/macos/qml
+-qrcFiles
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_stuglab.qrc
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appstuglab_raw_qml_0.qrc

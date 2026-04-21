@@ -1,0 +1,9 @@
+{
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.configureSettings": {
+    "CMAKE_BUILD_TYPE": "Debug",
+    "CMAKE_PREFIX_PATH": "/Users/niklasprobst/Qt/6.11.0/macos",
+    "QT_QMAKE_EXECUTABLE": "/Users/niklasprobst/Qt/6.11.0/macos/bin/qmake"
+  },
+  "cmake.sourceDirectory": "/Users/niklasprobst/Desktop/Stugverter/sicstudio"
+}

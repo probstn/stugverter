@@ -1,0 +1,48 @@
+{
+    "classes": [
+        {
+            "className": "DictionaryManager",
+            "lineNumber": 19,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 0,
+                    "isConst": true,
+                    "lineNumber": 53,
+                    "name": "getAddress",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "isConst": true,
+                    "lineNumber": 58,
+                    "name": "getDataType",
+                    "returnType": "int"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "DictionaryManager",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DictionaryManager.h",
+    "outputRevision": 69
+}

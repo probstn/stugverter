@@ -1,0 +1,176 @@
+{
+    "classes": [
+        {
+            "classInfos": [
+                {
+                    "name": "QML.Element",
+                    "value": "auto"
+                }
+            ],
+            "className": "Plotter",
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": "float"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 38,
+                    "name": "addPoint",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 13,
+                    "name": "targetSeries",
+                    "notify": "targetSeriesChanged",
+                    "override": false,
+                    "read": "targetSeries",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QXYSeries*",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setTargetSeries"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 14,
+                    "name": "displayWindow",
+                    "notify": "displayWindowChanged",
+                    "override": false,
+                    "read": "displayWindow",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setDisplayWindow"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 15,
+                    "name": "isPaused",
+                    "notify": "isPausedChanged",
+                    "override": false,
+                    "read": "isPaused",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setIsPaused"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 16,
+                    "name": "panOffset",
+                    "notify": "panOffsetChanged",
+                    "override": false,
+                    "read": "panOffset",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setPanOffset"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 17,
+                    "name": "maxPanOffset",
+                    "notify": "maxPanOffsetChanged",
+                    "override": false,
+                    "read": "maxPanOffset",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "Plotter",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 41,
+                    "name": "targetSeriesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 42,
+                    "name": "displayWindowChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 43,
+                    "name": "isPausedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 44,
+                    "name": "panOffsetChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 45,
+                    "name": "maxPanOffsetChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 5,
+                    "lineNumber": 48,
+                    "name": "updatePlot",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Plotter.h",
+    "outputRevision": 69
+}

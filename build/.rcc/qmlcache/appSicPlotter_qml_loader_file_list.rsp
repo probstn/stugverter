@@ -1,0 +1,11 @@
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_SicPlotter.qrc
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appSicPlotter_raw_qml_0.qrc
+/SicPlotter/Main.qml
+/SicPlotter/GlobalStyle.qml
+/SicPlotter/AppHeader.qml
+/SicPlotter/ConfigPage.qml
+/SicPlotter/DictionaryEntryRow.qml
+/SicPlotter/ScopePanel.qml
+/SicPlotter/ScopesPage.qml

@@ -1,0 +1,5 @@
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_SICStudio.qrc
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appSICStudio_raw_qml_0.qrc
+/qt/qml/SICStudio/Main.qml

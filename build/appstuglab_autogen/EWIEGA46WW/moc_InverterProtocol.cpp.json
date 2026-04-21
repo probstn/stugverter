@@ -1,0 +1,126 @@
+{
+    "classes": [
+        {
+            "className": "InverterProtocol",
+            "lineNumber": 9,
+            "object": true,
+            "qualifiedClassName": "InverterProtocol",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "payload",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 23,
+                    "name": "dictionaryAckReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "payload",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 24,
+                    "name": "readAckReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "cnt",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 25,
+                    "name": "writeAckReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "errorCode",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 26,
+                    "name": "nackReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "errorMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 27,
+                    "name": "errorOccurred",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 28,
+                    "name": "streamDataReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "quint8"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 29,
+                    "name": "streamStopAckReceived",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 33,
+                    "name": "onDataReceived",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "InverterProtocol.h",
+    "outputRevision": 69
+}

@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/stuglab">/Users/niklasprobst/Desktop/Stugverter/build/stuglab</file>
+
+  </qresource>
+</RCC>

@@ -1,0 +1,126 @@
+{
+    "classes": [
+        {
+            "className": "DeviceDictionaryModel",
+            "enums": [
+                {
+                    "isClass": false,
+                    "isFlag": false,
+                    "lineNumber": 12,
+                    "name": "Roles",
+                    "values": [
+                        "AddressRole",
+                        "AddressHexRole",
+                        "NameRole",
+                        "UnitRole",
+                        "TypeCodeRole",
+                        "TypeNameRole",
+                        "AccessCodeRole",
+                        "AccessNameRole",
+                        "ValueRole",
+                        "PendingValueRole",
+                        "WritableRole",
+                        "ModifiedRole",
+                        "StreamSelectedRole"
+                    ]
+                }
+            ],
+            "lineNumber": 7,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 48,
+                    "name": "clearStreamSelection",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 50,
+                    "name": "setPendingValue",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "selected",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 51,
+                    "name": "setStreamSelected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "isConst": true,
+                    "lineNumber": 52,
+                    "name": "isWritable",
+                    "returnType": "bool"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 9,
+                    "name": "count",
+                    "notify": "countChanged",
+                    "override": false,
+                    "read": "count",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "DeviceDictionaryModel",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 55,
+                    "name": "countChanged",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "DeviceDictionaryModel.h",
+    "outputRevision": 69
+}

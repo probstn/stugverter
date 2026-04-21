@@ -1,0 +1,295 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 83,
+                            "functionName": "fill",
+                            "line": 12,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 23,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 22,
+                            "message": "Could not find property \"weight\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onPressed",
+                            "line": 32,
+                            "message": "Could not find signal \"pressed\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 33,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onPressed",
+                            "line": 39,
+                            "message": "Could not find signal \"pressed\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 40,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 404,
+                            "functionName": "model",
+                            "line": 53,
+                            "message": "Cannot access value for name inverterManager"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 28,
+                            "durationMicroseconds": 64,
+                            "functionName": "cellWidth",
+                            "line": 54,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 48,
+                            "functionName": "flow",
+                            "line": 56,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 23,
+                            "functionName": "width",
+                            "line": 59,
+                            "message": "Cannot access value for name grid"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 29,
+                            "durationMicroseconds": 15,
+                            "functionName": "height",
+                            "line": 60,
+                            "message": "Cannot access value for name grid"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 32,
+                            "durationMicroseconds": 2444,
+                            "functionName": "color",
+                            "line": 67,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 39,
+                            "durationMicroseconds": 37,
+                            "functionName": "fill",
+                            "line": 64,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 43,
+                            "durationMicroseconds": 25,
+                            "functionName": "fill",
+                            "line": 72,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 80,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 83,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 48,
+                            "functionName": "alignment",
+                            "line": 84,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 89,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 92,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 93,
+                            "message": "Could not find property \"elide\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 37,
+                            "functionName": "alignment",
+                            "line": 94,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 43,
+                            "functionName": "color",
+                            "line": 103,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 41,
+                            "functionName": "color",
+                            "line": 107,
+                            "message": "Cannot retrieve a non-object type by ID: valueInput"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 25,
+                            "functionName": "fill",
+                            "line": 111,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 119,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "readOnly",
+                            "line": 120,
+                            "message": "Could not find property \"readOnly\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 124,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 60,
+                            "durationMicroseconds": 0,
+                            "functionName": "verticalAlignment",
+                            "line": 128,
+                            "message": "Could not find property \"verticalAlignment\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 60,
+                            "durationMicroseconds": 0,
+                            "functionName": "onEditingFinished",
+                            "line": 131,
+                            "message": "Could not find signal \"editingFinished\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "italic",
+                            "line": 123,
+                            "message": "Could not find property \"italic\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 140,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 141,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 54,
+                            "durationMicroseconds": 0,
+                            "functionName": "weight",
+                            "line": 143,
+                            "message": "Could not find property \"weight\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 59,
+                            "durationMicroseconds": 35,
+                            "functionName": "alignment",
+                            "line": 144,
+                            "message": ""
+                        }
+                    ],
+                    "filePath": "/Users/niklasprobst/Desktop/Stugverter/stuglab/ConfigPage.qml"
+                }
+            ],
+            "moduleId": "stuglab(appstuglab)"
+        }
+    ]
+}

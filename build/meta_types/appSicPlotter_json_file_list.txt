@@ -1,0 +1,4 @@
+/Users/niklasprobst/Desktop/Stugverter/build/appSicPlotter_autogen/include/../EWIEGA46WW/moc_DeviceDictionaryModel.cpp.json
+/Users/niklasprobst/Desktop/Stugverter/build/appSicPlotter_autogen/include/../EWIEGA46WW/moc_Scope.cpp.json
+/Users/niklasprobst/Desktop/Stugverter/build/appSicPlotter_autogen/include/../EWIEGA46WW/moc_TcpWorker.cpp.json
+/Users/niklasprobst/Desktop/Stugverter/build/appSicPlotter_autogen/include/../EWIEGA46WW/moc_UdpWorker.cpp.json

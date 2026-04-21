@@ -1,0 +1,154 @@
+{
+    "classes": [
+        {
+            "className": "PlotWorker",
+            "lineNumber": 10,
+            "object": true,
+            "qualifiedClassName": "PlotWorker",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "points",
+                            "type": "QList<QPointF>"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 25,
+                    "name": "seriesFrameReady",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "xMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "xMax",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMax",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 26,
+                    "name": "viewportReady",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "tSec",
+                            "type": "double"
+                        },
+                        {
+                            "name": "value",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 2,
+                    "lineNumber": 18,
+                    "name": "ingestSample",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 19,
+                    "name": "setSeriesEnabled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 20,
+                    "name": "clear",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "windowSeconds",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 21,
+                    "name": "setWindowSeconds",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "maxPoints",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 22,
+                    "name": "setMaxPointsPerSeries",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "lineNumber": 29,
+                    "name": "flushFrames",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "plotworker.h",
+    "outputRevision": 69
+}

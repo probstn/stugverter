@@ -1,0 +1,10 @@
+module stuglab
+typeinfo appstuglab.qmltypes
+prefer :/qt/qml/stuglab/
+Main 254.0 Main.qml
+ConfigPage 254.0 ConfigPage.qml
+ScopeDashboard 254.0 ScopeDashboard.qml
+Navbar 254.0 Navbar.qml
+singleton Style 254.0 Style.qml
+depends QtQuick
+

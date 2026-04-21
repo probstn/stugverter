@@ -1,0 +1,73 @@
+{
+    "classes": [
+        {
+            "className": "DictionaryModel",
+            "lineNumber": 9,
+            "methods": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "isConst": true,
+                    "lineNumber": 72,
+                    "name": "selectedPlotAddresses",
+                    "returnType": "QVariantList"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        },
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 73,
+                    "name": "setPlotEnabledByRow",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 2,
+                    "isConst": true,
+                    "lineNumber": 74,
+                    "name": "addressAt",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 3,
+                    "isConst": true,
+                    "lineNumber": 75,
+                    "name": "isEditableAt",
+                    "returnType": "bool"
+                }
+            ],
+            "object": true,
+            "qualifiedClassName": "DictionaryModel",
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QAbstractListModel"
+                }
+            ]
+        }
+    ],
+    "inputFile": "dictionarymodel.h",
+    "outputRevision": 69
+}

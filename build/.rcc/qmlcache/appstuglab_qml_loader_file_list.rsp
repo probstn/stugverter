@@ -1,0 +1,9 @@
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_stuglab.qrc
+--resource
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appstuglab_raw_qml_0.qrc
+/qt/qml/stuglab/Main.qml
+/qt/qml/stuglab/ConfigPage.qml
+/qt/qml/stuglab/ScopeDashboard.qml
+/qt/qml/stuglab/Navbar.qml
+/qt/qml/stuglab/Style.qml

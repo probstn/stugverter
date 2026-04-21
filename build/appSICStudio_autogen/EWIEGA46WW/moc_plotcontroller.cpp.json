@@ -1,0 +1,610 @@
+{
+    "classes": [
+        {
+            "className": "PlotWorker",
+            "lineNumber": 15,
+            "object": true,
+            "qualifiedClassName": "PlotWorker",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "seriesFrames",
+                            "type": "QVariantList"
+                        },
+                        {
+                            "name": "xMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "xMax",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMax",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 35,
+                    "name": "frameReady",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 36,
+                    "name": "cleared",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 23,
+                    "name": "initialize",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "tSec",
+                            "type": "double"
+                        },
+                        {
+                            "name": "value",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 24,
+                    "name": "enqueueSample",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "samples",
+                            "type": "QList<PlotSample>"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 25,
+                    "name": "enqueueSamples",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "series",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 26,
+                    "name": "setTrackedSeries",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "seconds",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 27,
+                    "name": "setWindowSeconds",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "seconds",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 28,
+                    "name": "setRenderWindowSeconds",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "maxPoints",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 29,
+                    "name": "setMaxPointsPerSeries",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fps",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 30,
+                    "name": "setTargetFps",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 10,
+                    "lineNumber": 31,
+                    "name": "setRenderingEnabled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 11,
+                    "lineNumber": 32,
+                    "name": "clear",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 12,
+                    "lineNumber": 39,
+                    "name": "publishFrame",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        },
+        {
+            "className": "PlotController",
+            "lineNumber": 78,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 16,
+                    "lineNumber": 106,
+                    "name": "setSeriesEnabled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 17,
+                    "lineNumber": 107,
+                    "name": "clear",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 18,
+                    "lineNumber": 108,
+                    "name": "syncTargetFpsToPrimaryScreen",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 81,
+                    "name": "xMin",
+                    "notify": "axesChanged",
+                    "override": false,
+                    "read": "xMin",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 82,
+                    "name": "xMax",
+                    "notify": "axesChanged",
+                    "override": false,
+                    "read": "xMax",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 2,
+                    "lineNumber": 83,
+                    "name": "yMin",
+                    "notify": "axesChanged",
+                    "override": false,
+                    "read": "yMin",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 3,
+                    "lineNumber": 84,
+                    "name": "yMax",
+                    "notify": "axesChanged",
+                    "override": false,
+                    "read": "yMax",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 4,
+                    "lineNumber": 85,
+                    "name": "windowSeconds",
+                    "notify": "windowSecondsChanged",
+                    "override": false,
+                    "read": "windowSeconds",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setWindowSeconds"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 5,
+                    "lineNumber": 86,
+                    "name": "renderWindowSeconds",
+                    "notify": "renderWindowSecondsChanged",
+                    "override": false,
+                    "read": "renderWindowSeconds",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "double",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setRenderWindowSeconds"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 6,
+                    "lineNumber": 87,
+                    "name": "maxPointsPerSeries",
+                    "notify": "maxPointsPerSeriesChanged",
+                    "override": false,
+                    "read": "maxPointsPerSeries",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setMaxPointsPerSeries"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 7,
+                    "lineNumber": 88,
+                    "name": "targetFps",
+                    "notify": "targetFpsChanged",
+                    "override": false,
+                    "read": "targetFps",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "int",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setTargetFps"
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 8,
+                    "lineNumber": 89,
+                    "name": "renderingEnabled",
+                    "notify": "renderingEnabledChanged",
+                    "override": false,
+                    "read": "renderingEnabled",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false,
+                    "write": "setRenderingEnabled"
+                }
+            ],
+            "qualifiedClassName": "PlotController",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "points",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 120,
+                    "name": "seriesFrame",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 121,
+                    "name": "axesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 122,
+                    "name": "windowSecondsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 123,
+                    "name": "renderWindowSecondsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 4,
+                    "lineNumber": 124,
+                    "name": "maxPointsPerSeriesChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 5,
+                    "lineNumber": 125,
+                    "name": "targetFpsChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 6,
+                    "lineNumber": 126,
+                    "name": "renderingEnabledChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 7,
+                    "lineNumber": 127,
+                    "name": "cleared",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "tSec",
+                            "type": "double"
+                        },
+                        {
+                            "name": "value",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 111,
+                    "name": "ingestSample",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "samples",
+                            "type": "QList<PlotSample>"
+                        }
+                    ],
+                    "index": 9,
+                    "lineNumber": 112,
+                    "name": "ingestSamples",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "seconds",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 10,
+                    "lineNumber": 113,
+                    "name": "setWindowSeconds",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "seconds",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 11,
+                    "lineNumber": 114,
+                    "name": "setRenderWindowSeconds",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "maxPoints",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 115,
+                    "name": "setMaxPointsPerSeries",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "fps",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 13,
+                    "lineNumber": 116,
+                    "name": "setTargetFps",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "enabled",
+                            "type": "bool"
+                        }
+                    ],
+                    "index": 14,
+                    "lineNumber": 117,
+                    "name": "setRenderingEnabled",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "seriesFrames",
+                            "type": "QVariantList"
+                        },
+                        {
+                            "name": "xMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "xMax",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMin",
+                            "type": "double"
+                        },
+                        {
+                            "name": "yMax",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 15,
+                    "lineNumber": 130,
+                    "name": "onFrameReady",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "plotcontroller.h",
+    "outputRevision": 69
+}

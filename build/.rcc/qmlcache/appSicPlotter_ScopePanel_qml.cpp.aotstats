@@ -1,0 +1,159 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 94,
+                            "functionName": "color",
+                            "line": 18,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 5,
+                            "durationMicroseconds": 0,
+                            "functionName": "drawScope",
+                            "line": 21,
+                            "message": "Functions without type annotations won't be compiled"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 49,
+                            "functionName": "color",
+                            "line": 19,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 30,
+                            "functionName": "fill",
+                            "line": 158,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 167,
+                            "message": "Could not find property \"enabled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 168,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 26,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 173,
+                            "message": "Could not find property \"enabled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 28,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 174,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 178,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 179,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 185,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 186,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 20,
+                            "durationMicroseconds": 43,
+                            "functionName": "color",
+                            "line": 194,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 27,
+                            "durationMicroseconds": 41,
+                            "functionName": "color",
+                            "line": 195,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 26,
+                            "durationMicroseconds": 102,
+                            "functionName": "onPaint",
+                            "line": 201,
+                            "message": "Cannot generate efficient code for call to untyped JavaScript function"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 31,
+                            "durationMicroseconds": 28,
+                            "functionName": "fill",
+                            "line": 199,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 17,
+                            "durationMicroseconds": 55,
+                            "functionName": "target",
+                            "line": 207,
+                            "message": "Cannot access value for name backend"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 9,
+                            "durationMicroseconds": 48,
+                            "functionName": "onScopeDataChanged",
+                            "line": 208,
+                            "message": ""
+                        }
+                    ],
+                    "filePath": "/Users/niklasprobst/Desktop/Stugverter/sicstudio/ScopePanel.qml"
+                }
+            ],
+            "moduleId": "SicPlotter(appSicPlotter)"
+        }
+    ]
+}

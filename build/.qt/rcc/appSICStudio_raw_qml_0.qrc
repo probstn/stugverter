@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/SICStudio/">
+    <file alias="Main.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/Main.qml</file>
+  </qresource>
+</RCC>
+

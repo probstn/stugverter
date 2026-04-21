@@ -1,0 +1,55 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 745,
+                            "functionName": "windowBg",
+                            "line": 9,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: QQuickSystemPalette::window with type QColor (stored as QVariant) -> QQuickSystemPalette::window with type QColor (adjusted to QColor, stored as QVariant)"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 40,
+                            "durationMicroseconds": 71,
+                            "functionName": "controlBg",
+                            "line": 10,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: QQuickSystemPalette::button with type QColor (stored as QVariant) -> QQuickSystemPalette::button with type QColor (adjusted to QColor, stored as QVariant)"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 39,
+                            "durationMicroseconds": 47,
+                            "functionName": "textMain",
+                            "line": 18,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: QQuickSystemPalette::windowText with type QColor (stored as QVariant) -> QQuickSystemPalette::windowText with type QColor (adjusted to QColor, stored as QVariant)"
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 41,
+                            "durationMicroseconds": 57,
+                            "functionName": "textDimmed",
+                            "line": 19,
+                            "message": "Cannot generate efficient code for internal conversion with incompatible or ambiguous types: QQuickSystemPalette::text with type QColor (stored as QVariant) -> QQuickSystemPalette::text with type QColor (adjusted to QColor, stored as QVariant)"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 69,
+                            "durationMicroseconds": 44,
+                            "functionName": "colorGroup",
+                            "line": 6,
+                            "message": ""
+                        }
+                    ],
+                    "filePath": "/Users/niklasprobst/Desktop/Stugverter/stuglab/Style.qml"
+                }
+            ],
+            "moduleId": "stuglab(appstuglab)"
+        }
+    ]
+}

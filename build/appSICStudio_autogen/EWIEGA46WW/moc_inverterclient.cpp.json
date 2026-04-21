@@ -1,0 +1,303 @@
+{
+    "classes": [
+        {
+            "className": "InverterClient",
+            "lineNumber": 14,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "host",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "port",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 12,
+                    "lineNumber": 26,
+                    "name": "connectToDevice",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "host",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 13,
+                    "isCloned": true,
+                    "lineNumber": 26,
+                    "name": "connectToDevice",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 14,
+                    "lineNumber": 27,
+                    "name": "disconnectFromDevice",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 15,
+                    "lineNumber": 29,
+                    "name": "requestDictionary",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "addresses",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "index": 16,
+                    "lineNumber": 30,
+                    "name": "readAddresses",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 17,
+                    "lineNumber": 31,
+                    "name": "readAllDictionaryValues",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "valueText",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 18,
+                    "lineNumber": 32,
+                    "name": "writeValue",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "int"
+                        },
+                        {
+                            "name": "loopDivider",
+                            "type": "int"
+                        },
+                        {
+                            "name": "addresses",
+                            "type": "QVariantList"
+                        }
+                    ],
+                    "index": 19,
+                    "lineNumber": 33,
+                    "name": "startStream",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "streamId",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 20,
+                    "lineNumber": 34,
+                    "name": "stopStream",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 21,
+                    "lineNumber": 35,
+                    "name": "commitConfig",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 17,
+                    "name": "connected",
+                    "notify": "connectedChanged",
+                    "override": false,
+                    "read": "connected",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 18,
+                    "name": "status",
+                    "notify": "statusChanged",
+                    "override": false,
+                    "read": "status",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QString",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "InverterClient",
+            "signals": [
+                {
+                    "access": "public",
+                    "index": 0,
+                    "lineNumber": 38,
+                    "name": "connectedChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 1,
+                    "lineNumber": 39,
+                    "name": "statusChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 40,
+                    "name": "dictionaryReloaded",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "address",
+                            "type": "int"
+                        },
+                        {
+                            "name": "name",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "tSec",
+                            "type": "double"
+                        },
+                        {
+                            "name": "value",
+                            "type": "double"
+                        }
+                    ],
+                    "index": 3,
+                    "lineNumber": 41,
+                    "name": "streamSample",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "samples",
+                            "type": "QList<PlotSample>"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 42,
+                    "name": "streamSamplesReady",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "text",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 5,
+                    "lineNumber": 43,
+                    "name": "commandError",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "private",
+                    "index": 6,
+                    "lineNumber": 46,
+                    "name": "onTcpConnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 7,
+                    "lineNumber": 47,
+                    "name": "onTcpDisconnected",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "socketError",
+                            "type": "QAbstractSocket::SocketError"
+                        }
+                    ],
+                    "index": 8,
+                    "lineNumber": 48,
+                    "name": "onTcpError",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 9,
+                    "lineNumber": 49,
+                    "name": "onTcpReadyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 10,
+                    "lineNumber": 50,
+                    "name": "onUdpReadyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 11,
+                    "lineNumber": 51,
+                    "name": "finalizeDictionary",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "inverterclient.h",
+    "outputRevision": 69
+}

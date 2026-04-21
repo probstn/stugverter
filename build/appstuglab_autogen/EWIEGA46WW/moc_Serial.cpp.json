@@ -1,0 +1,178 @@
+{
+    "classes": [
+        {
+            "className": "Serial",
+            "lineNumber": 8,
+            "methods": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "portName",
+                            "type": "QString"
+                        },
+                        {
+                            "name": "baudRate",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 7,
+                    "lineNumber": 17,
+                    "name": "connectDevice",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "portName",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 8,
+                    "isCloned": true,
+                    "lineNumber": 17,
+                    "name": "connectDevice",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "index": 9,
+                    "lineNumber": 18,
+                    "name": "disconnectDevice",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 10,
+                    "lineNumber": 19,
+                    "name": "refreshPorts",
+                    "returnType": "void"
+                }
+            ],
+            "object": true,
+            "properties": [
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 0,
+                    "lineNumber": 10,
+                    "name": "portList",
+                    "notify": "portListChanged",
+                    "override": false,
+                    "read": "portList",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "QStringList",
+                    "user": false,
+                    "virtual": false
+                },
+                {
+                    "constant": false,
+                    "designable": true,
+                    "final": false,
+                    "index": 1,
+                    "lineNumber": 11,
+                    "name": "connected",
+                    "notify": "statusChanged",
+                    "override": false,
+                    "read": "isOpen",
+                    "required": false,
+                    "scriptable": true,
+                    "stored": true,
+                    "type": "bool",
+                    "user": false,
+                    "virtual": false
+                }
+            ],
+            "qualifiedClassName": "Serial",
+            "signals": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 0,
+                    "lineNumber": 25,
+                    "name": "dataReceived",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "errorMsg",
+                            "type": "QString"
+                        }
+                    ],
+                    "index": 1,
+                    "lineNumber": 26,
+                    "name": "errorOccurred",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 2,
+                    "lineNumber": 27,
+                    "name": "portListChanged",
+                    "returnType": "void"
+                },
+                {
+                    "access": "public",
+                    "index": 3,
+                    "lineNumber": 28,
+                    "name": "statusChanged",
+                    "returnType": "void"
+                }
+            ],
+            "slots": [
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "data",
+                            "type": "QByteArray"
+                        }
+                    ],
+                    "index": 4,
+                    "lineNumber": 31,
+                    "name": "writeData",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "index": 5,
+                    "lineNumber": 34,
+                    "name": "handleReadyRead",
+                    "returnType": "void"
+                },
+                {
+                    "access": "private",
+                    "arguments": [
+                        {
+                            "name": "error",
+                            "type": "QSerialPort::SerialPortError"
+                        }
+                    ],
+                    "index": 6,
+                    "lineNumber": 35,
+                    "name": "handleError",
+                    "returnType": "void"
+                }
+            ],
+            "superClasses": [
+                {
+                    "access": "public",
+                    "name": "QObject"
+                }
+            ]
+        }
+    ],
+    "inputFile": "Serial.h",
+    "outputRevision": 69
+}

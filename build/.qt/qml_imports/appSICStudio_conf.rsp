@@ -1,0 +1,14 @@
+-rootPath
+/Users/niklasprobst/Desktop/Stugverter/sicstudio
+-cmake-output
+-output-file
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/qml_imports/appSICStudio_conf.cmake
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build
+-importPath
+/Users/niklasprobst/Desktop/Stugverter/build/SICStudio
+-importPath
+/Users/niklasprobst/Qt/6.11.0/macos/qml
+-qrcFiles
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/qmake_SICStudio.qrc
+/Users/niklasprobst/Desktop/Stugverter/build/.qt/rcc/appSICStudio_raw_qml_0.qrc

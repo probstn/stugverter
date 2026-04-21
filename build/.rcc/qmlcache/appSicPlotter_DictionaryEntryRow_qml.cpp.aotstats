@@ -1,0 +1,207 @@
+{
+    "formatRevision": 1,
+    "modules": [
+        {
+            "moduleFiles": [
+                {
+                    "entries": [
+                        {
+                            "codegenResult": 0,
+                            "column": 12,
+                            "durationMicroseconds": 247,
+                            "functionName": "color",
+                            "line": 28,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 19,
+                            "durationMicroseconds": 107,
+                            "functionName": "color",
+                            "line": 29,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 23,
+                            "durationMicroseconds": 33,
+                            "functionName": "fill",
+                            "line": 32,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "checked",
+                            "line": 39,
+                            "message": "Could not find property \"checked\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 24,
+                            "durationMicroseconds": 0,
+                            "functionName": "onToggled",
+                            "line": 40,
+                            "message": "Could not find signal \"toggled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 43,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 76,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 43,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 44,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 77,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 44,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 45,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 76,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 45,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 46,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 77,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 46,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 51,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 47,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 76,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 47,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 48,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 77,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 48,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 22,
+                            "durationMicroseconds": 0,
+                            "functionName": "enabled",
+                            "line": 53,
+                            "message": "Could not find property \"enabled\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 20,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 54,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 30,
+                            "durationMicroseconds": 0,
+                            "functionName": "placeholderText",
+                            "line": 55,
+                            "message": "Could not find property \"placeholderText\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 32,
+                            "durationMicroseconds": 0,
+                            "functionName": "onEditingFinished",
+                            "line": 64,
+                            "message": "Could not find signal \"editingFinished\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 25,
+                            "durationMicroseconds": 18,
+                            "functionName": "target",
+                            "line": 58,
+                            "message": "Cannot retrieve a non-object type by ID: pendingEditor"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 24,
+                            "durationMicroseconds": 40,
+                            "functionName": "value",
+                            "line": 60,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 23,
+                            "durationMicroseconds": 17,
+                            "functionName": "when",
+                            "line": 61,
+                            "message": "Cannot retrieve a non-object type by ID: pendingEditor"
+                        }
+                    ],
+                    "filePath": "/Users/niklasprobst/Desktop/Stugverter/sicstudio/DictionaryEntryRow.qml"
+                }
+            ],
+            "moduleId": "SicPlotter(appSicPlotter)"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="/qt/qml/stuglab/">
+    <file alias="Main.qml">/Users/niklasprobst/Desktop/Stugverter/stuglab/Main.qml</file>
+    <file alias="ConfigPage.qml">/Users/niklasprobst/Desktop/Stugverter/stuglab/ConfigPage.qml</file>
+    <file alias="ScopeDashboard.qml">/Users/niklasprobst/Desktop/Stugverter/stuglab/ScopeDashboard.qml</file>
+    <file alias="Navbar.qml">/Users/niklasprobst/Desktop/Stugverter/stuglab/Navbar.qml</file>
+    <file alias="Style.qml">/Users/niklasprobst/Desktop/Stugverter/stuglab/Style.qml</file>
+  </qresource>
+</RCC>
+

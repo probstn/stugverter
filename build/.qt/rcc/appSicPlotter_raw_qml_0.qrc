@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="/SicPlotter/">
+    <file alias="Main.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/Main.qml</file>
+    <file alias="GlobalStyle.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/GlobalStyle.qml</file>
+    <file alias="AppHeader.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/AppHeader.qml</file>
+    <file alias="ConfigPage.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/ConfigPage.qml</file>
+    <file alias="DictionaryEntryRow.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/DictionaryEntryRow.qml</file>
+    <file alias="ScopePanel.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/ScopePanel.qml</file>
+    <file alias="ScopesPage.qml">/Users/niklasprobst/Desktop/Stugverter/sicstudio/ScopesPage.qml</file>
+  </qresource>
+</RCC>
+
