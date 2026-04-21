@@ -88,6 +88,7 @@ bool DictionaryModel::hasAddress(quint16 address) const
     return m_rowByAddress.contains(address);
 }
 
+
 bool DictionaryModel::metadataForAddress(quint16 address, quint8 *type, quint8 *access, QString *name, QString *unit) const
 {
     const int row = m_rowByAddress.value(address, -1);
