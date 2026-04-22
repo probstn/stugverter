@@ -1,7 +1,6 @@
 [submodule "firmware"]
 	path = firmware
 	url = https://github.com/TUGrazRacing/stugverter-aurix.git
-
 [submodule "sicstudio"]
 	path = sicstudio
 	url = https://github.com/probstn/sicstudio.git
