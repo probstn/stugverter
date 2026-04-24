@@ -294,12 +294,15 @@ ApplicationWindow {
                 return
             }
 
+            if (!root.dictionaryModelObj.isPlotEnabledAddress(address)) {
+                root.removeSeriesForAddress(address)
+                return
+            }
+
             let series = root.lineSeriesByAddress[address]
 
             if (points.length === 0) {
-                if (series) {
-                    series.replace([])
-                }
+                root.removeSeriesForAddress(address)
                 return
             }
 
@@ -703,6 +706,9 @@ ApplicationWindow {
                                             root.plotControllerObj.setSeriesEnabled(rowDelegate.address, rowDelegate.name, checked)
                                             if (!checked) {
                                                 root.removeSeriesForAddress(rowDelegate.address)
+                                            }
+                                            if (root.livePaused) {
+                                                root.schedulePausedViewRefresh()
                                             }
                                         }
                                     }

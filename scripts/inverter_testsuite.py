@@ -38,6 +38,7 @@ CMD_STREAM_ACK = 0x83
 CMD_STREAM_STOP_ACK = 0x84
 CMD_CONFIG_COMMIT_ACK = 0x86
 CMD_ERROR = 0x8F
+DICT_GROUP_ALL = 0xFF
 
 ERR_INVALID_ADDR = 0x01
 ERR_ACCESS_DENIED = 0x02
@@ -359,7 +360,7 @@ class InverterTestSuite:
         raise ProtocolError(f"device Error-Resp malformed length={len(frame.payload)}")
 
     def test_dictionary(self) -> str:
-        self.client.send_frame(CMD_DICTIONARY, b"")
+        self.client.send_frame(CMD_DICTIONARY, bytes([DICT_GROUP_ALL]))
         frames = self.client.recv_frames_until_silence(self.args.dict_total_timeout, self.args.dict_silence_timeout)
 
         dict_frames = [f for f in frames if f.cmd == CMD_DICTIONARY_ACK]
@@ -661,11 +662,10 @@ class InverterTestSuite:
             raise ProtocolError("dictionary empty, cannot run stream test")
 
         stream_id = self.args.stream_id
-        freq_x100 = self.args.stream_freq_x100
+        loop_divider = self.args.loop_divider
         regs = [e.address for e in stream_candidates]
 
         udp = self._open_udp_listener()
-        loop_divider = 1
         try:
             payload = bytes([stream_id, loop_divider]) + b"".join(struct.pack("<H", a) for a in regs)
             self.client.send_frame(CMD_STREAM_START, payload)
@@ -795,7 +795,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dict-total-timeout", type=float, default=3.0, help="Max dictionary receive time in seconds")
     parser.add_argument("--dict-silence-timeout", type=float, default=0.3, help="Dictionary completion silence timeout in seconds")
     parser.add_argument("--stream-id", type=int, default=1, help="Stream ID used by stream tests")
-    parser.add_argument("--stream-freq-x100", type=int, default=1000, help="Stream frequency in x100 Hz")
+    parser.add_argument("--loop-divider", type=int, default=1, help="Stream loop divider")
     parser.add_argument("--stream-packets", type=int, default=3, help="Number of UDP packets required for pass")
     parser.add_argument("--stream-wait-s", type=float, default=4.0, help="Max wait time for required UDP packets")
     parser.add_argument("--log-file", default="inverter_testsuite.log", help="Detailed log file path")
@@ -809,8 +809,8 @@ def main() -> int:
     if args.stream_id < 0 or args.stream_id > 255:
         print("Invalid --stream-id, must be in [0..255]", file=sys.stderr)
         return 2
-    if args.stream_freq_x100 <= 0:
-        print("Invalid --stream-freq-x100, must be > 0", file=sys.stderr)
+    if args.loop_divider <= 0 or args.loop_divider > 255:
+        print("Invalid --loop-divider, must be in [1..255]", file=sys.stderr)
         return 2
 
     logger = setup_logger(args.log_file, args.verbose)

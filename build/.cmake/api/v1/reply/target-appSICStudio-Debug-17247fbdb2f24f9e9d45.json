@@ -816,8 +816,7 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "appSICStudio_autogen::@6890427a1f51a3e7e1df"
+			"id" : "appSICStudio_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 57,
@@ -836,7 +835,8 @@
 			"id" : "appSICStudio_qmlimportscan::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "appSICStudio_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "appSICStudio_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "appSICStudio::@6890427a1f51a3e7e1df",

@@ -27,6 +27,7 @@ START_BYTES = b"\xAA\x55"
 MAX_PAYLOAD = 250
 TCP_HEADER_SIZE = 5
 DICT_RECORD_LEN = 25
+DICT_GROUP_ALL = 0xFF
 
 CMD_DICTIONARY = 0x00
 CMD_READ = 0x01
@@ -356,7 +357,7 @@ class InverterCli:
         raise ProtocolError(f"malformed Error-Resp payload length: {len(frame.payload)}")
 
     def fetch_dictionary(self) -> Dict[int, DictEntry]:
-        self.client.send_frame(CMD_DICTIONARY, b"")
+        self.client.send_frame(CMD_DICTIONARY, bytes([self.args.dict_group]))
         frames = self.client.recv_frames_until_silence(self.args.dict_total_timeout, self.args.dict_silence_timeout)
         dict_frames = [f for f in frames if f.cmd == CMD_DICTIONARY_ACK]
         err_frames = [f for f in frames if f.cmd == CMD_ERROR]
@@ -387,6 +388,7 @@ class InverterCli:
                     address=address,
                     type_code=type_code,
                     access=access,
+                    group_id=group_id,
                     name=name,
                     unit=unit,
                 )
@@ -542,13 +544,13 @@ class InverterCli:
 
     def cmd_stream_start(self) -> int:
         stream_id = self.args.stream_id
-        freq_x100 = self.args.freq_x100
+        loop_divider = self.args.loop_divider
         addrs = [parse_int(a) & 0xFFFF for a in self.args.addr]
 
         if not addrs:
             raise ProtocolError("stream-start requires at least one address")
 
-        payload = bytes([stream_id]) + struct.pack("<H", freq_x100) + b"".join(struct.pack("<H", a) for a in addrs)
+        payload = bytes([stream_id, loop_divider]) + b"".join(struct.pack("<H", a) for a in addrs)
         self.client.send_frame(CMD_STREAM_START, payload)
 
         ack = self._expect_frame((CMD_STREAM_ACK,), self.args.tcp_timeout)
@@ -567,7 +569,7 @@ class InverterCli:
 
         ack_addrs = [addr_bytes[i] | (addr_bytes[i + 1] << 8) for i in range(0, len(addr_bytes), 2)]
 
-        print(f"stream start ok: id={ack_id}, count={count}, addresses={[f'0x{a:04X}' for a in ack_addrs]}")
+        print(f"stream start ok: id={ack_id}, divider={loop_divider}, count={count}, addresses={[f'0x{a:04X}' for a in ack_addrs]}")
         return 0
 
     def cmd_stream_stop(self) -> int:
@@ -647,34 +649,37 @@ class InverterCli:
                     continue
 
                 sid = pkt[2]
-                seq = pkt[3] | (pkt[4] << 8)
-                ts = int.from_bytes(pkt[5:13], "little", signed=False)
-                count = pkt[13]
-                data = pkt[14:]
-
                 if sid != stream_id:
                     print(f"ignored packet for stream id {sid}")
                     continue
 
+                sample_count = pkt[3]
+                sample_offset = 4
+                if sample_count == 0:
+                    print("ignored stream packet with zero samples")
+                    continue
+
                 received += 1
-                print(f"packet {received}/{packet_count}: sid={sid} seq={seq} ts={ts} count={count} data_len={len(data)}")
+                print(f"packet {received}/{packet_count}: sid={sid} samples={sample_count} payload_len={len(pkt)}")
 
                 if decode_entries:
                     expected_data_len = sum(e.size for e in decode_entries)
-                    if expected_data_len != len(data):
-                        print(
-                            f"  decode skipped, expected data_len {expected_data_len} from --addr list but got {len(data)}"
-                        )
+                    expected_packet_len = 4 + sample_count * (2 + 8 + expected_data_len)
+                    if expected_packet_len != len(pkt):
+                        print(f"  decode skipped, expected packet_len {expected_packet_len} but got {len(pkt)}")
                         continue
 
-                    idx = 0
-                    for e in decode_entries:
-                        raw = data[idx: idx + e.size]
-                        val = self.decode_typed(e, raw)
-                        print(
-                            f"  0x{e.address:04X} {e.name} ({e.type_name}) = {val} raw={hex_bytes(raw)}"
-                        )
-                        idx += e.size
+                    for sample_index in range(sample_count):
+                        seq = pkt[sample_offset] | (pkt[sample_offset + 1] << 8)
+                        sample_offset += 2
+                        ts = int.from_bytes(pkt[sample_offset:sample_offset + 8], "little", signed=False)
+                        sample_offset += 8
+                        print(f"  sample {sample_index + 1}/{sample_count}: seq={seq} ts={ts}")
+                        for e in decode_entries:
+                            raw = pkt[sample_offset: sample_offset + e.size]
+                            val = self.decode_typed(e, raw)
+                            print(f"    0x{e.address:04X} {e.name} ({e.type_name}) = {val} raw={hex_bytes(raw)}")
+                            sample_offset += e.size
 
             if received < packet_count:
                 raise ProtocolError(f"timeout waiting UDP packets: got {received}/{packet_count}")
@@ -694,11 +699,11 @@ class InverterCli:
             raise ProtocolError("dictionary empty")
         print(f"[PASS] dictionary parsed ({len(dct)} entries)")
 
-        self.client.send_frame(CMD_DICTIONARY, b"\x00")
+        self.client.send_frame(CMD_DICTIONARY, b"")
         _, code = self._expect_error(self.args.tcp_timeout)
         if code != ERR_OTHER:
-            raise ProtocolError(f"dictionary non-empty payload expected error 0x03, got 0x{code:02X}")
-        print("[PASS] dictionary rejects non-empty payload")
+            raise ProtocolError(f"dictionary empty payload expected error 0x03, got 0x{code:02X}")
+        print("[PASS] dictionary rejects malformed empty payload")
 
         first_addr = min(dct.keys())
         read_data = self.read_values([first_addr], self.args.tcp_timeout, dct)
@@ -859,7 +864,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--listen-timeout", type=float, default=5.0, help="Max listen time for stream packets")
     parser.add_argument("--dict-total-timeout", type=float, default=3.0, help="Max dictionary receive time")
     parser.add_argument("--dict-silence-timeout", type=float, default=0.3, help="Dictionary silence completion timeout")
-    parser.add_argument("--freq-x100", type=int, default=1000, help="Default stream frequency (x100 Hz)")
+    parser.add_argument("--loop-divider", type=int, default=1, help="Default stream loop divider")
+    parser.add_argument("--dict-group", type=lambda s: int(s, 0), default=DICT_GROUP_ALL, help="Dictionary group selector; 0xFF requests all groups")
     parser.add_argument("--stream-id", type=int, default=1, help="Default stream ID")
     parser.add_argument("--log-file", default="inverter_cli.log", help="Detailed log file path")
     parser.add_argument("--verbose", action="store_true", help="Enable verbose console debug output")
@@ -907,8 +913,11 @@ def main() -> int:
     if args.stream_id < 0 or args.stream_id > 255:
         print("--stream-id must be in range [0..255]", file=sys.stderr)
         return 2
-    if args.freq_x100 <= 0:
-        print("--freq-x100 must be > 0", file=sys.stderr)
+    if args.loop_divider <= 0 or args.loop_divider > 255:
+        print("--loop-divider must be in range [1..255]", file=sys.stderr)
+        return 2
+    if args.dict_group < 0 or args.dict_group > 255:
+        print("--dict-group must be in range [0..255]", file=sys.stderr)
         return 2
 
     logger = setup_logger(args.log_file, args.verbose)

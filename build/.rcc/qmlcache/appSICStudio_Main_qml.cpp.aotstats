@@ -8,7 +8,7 @@
                         {
                             "codegenResult": 2,
                             "column": 37,
-                            "durationMicroseconds": 673,
+                            "durationMicroseconds": 376,
                             "functionName": "inverterClientObj",
                             "line": 18,
                             "message": "Cannot access value for name inverterClient"
@@ -16,7 +16,7 @@
                         {
                             "codegenResult": 2,
                             "column": 38,
-                            "durationMicroseconds": 94,
+                            "durationMicroseconds": 86,
                             "functionName": "dictionaryModelObj",
                             "line": 19,
                             "message": "Cannot access value for name dictionaryModel"
@@ -24,7 +24,7 @@
                         {
                             "codegenResult": 2,
                             "column": 37,
-                            "durationMicroseconds": 79,
+                            "durationMicroseconds": 75,
                             "functionName": "plotControllerObj",
                             "line": 20,
                             "message": "Cannot access value for name plotController"
@@ -32,7 +32,7 @@
                         {
                             "codegenResult": 0,
                             "column": 39,
-                            "durationMicroseconds": 768,
+                            "durationMicroseconds": 461,
                             "functionName": "lineSeriesByAddress",
                             "line": 22,
                             "message": ""
@@ -40,7 +40,7 @@
                         {
                             "codegenResult": 0,
                             "column": 34,
-                            "durationMicroseconds": 35,
+                            "durationMicroseconds": 33,
                             "functionName": "colorByAddress",
                             "line": 23,
                             "message": ""
@@ -48,7 +48,7 @@
                         {
                             "codegenResult": 2,
                             "column": 33,
-                            "durationMicroseconds": 226,
+                            "durationMicroseconds": 221,
                             "functionName": "seriesPalette",
                             "line": 24,
                             "message": "Cannot generate efficient code for storing an array in a non-sequence type"
@@ -56,7 +56,7 @@
                         {
                             "codegenResult": 2,
                             "column": 38,
-                            "durationMicroseconds": 234,
+                            "durationMicroseconds": 95,
                             "functionName": "minXSpan",
                             "line": 40,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -88,7 +88,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 488,
+                            "durationMicroseconds": 478,
                             "functionName": "clearGraphSeries",
                             "line": 84,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -104,7 +104,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 26,
+                            "durationMicroseconds": 27,
                             "functionName": "currentXSpan",
                             "line": 112,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -128,7 +128,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 28,
+                            "durationMicroseconds": 25,
                             "functionName": "inputRateColor",
                             "line": 138,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -136,7 +136,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 272,
+                            "durationMicroseconds": 277,
                             "functionName": "clampXViewToBuffer",
                             "line": 149,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -144,7 +144,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 29,
+                            "durationMicroseconds": 30,
                             "functionName": "schedulePausedViewRefresh",
                             "line": 186,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -152,7 +152,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 63,
+                            "durationMicroseconds": 60,
                             "functionName": "updateRenderResolutionFromView",
                             "line": 193,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -160,7 +160,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 56,
+                            "durationMicroseconds": 62,
                             "functionName": "pauseLiveStream",
                             "line": 206,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -168,7 +168,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 176,
+                            "durationMicroseconds": 172,
                             "functionName": "playLiveStream",
                             "line": 219,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -176,7 +176,7 @@
                         {
                             "codegenResult": 2,
                             "column": 5,
-                            "durationMicroseconds": 104,
+                            "durationMicroseconds": 145,
                             "functionName": "resetTrendInteractionState",
                             "line": 248,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -184,7 +184,7 @@
                         {
                             "codegenResult": 2,
                             "column": 17,
-                            "durationMicroseconds": 9,
+                            "durationMicroseconds": 12,
                             "functionName": "target",
                             "line": 264,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -192,7 +192,7 @@
                         {
                             "codegenResult": 2,
                             "column": 9,
-                            "durationMicroseconds": 21,
+                            "durationMicroseconds": 23,
                             "functionName": "onDictionaryReloaded",
                             "line": 266,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -200,7 +200,7 @@
                         {
                             "codegenResult": 2,
                             "column": 9,
-                            "durationMicroseconds": 39,
+                            "durationMicroseconds": 45,
                             "functionName": "onConnectedChanged",
                             "line": 272,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -208,7 +208,7 @@
                         {
                             "codegenResult": 2,
                             "column": 9,
-                            "durationMicroseconds": 52,
+                            "durationMicroseconds": 55,
                             "functionName": "onStreamActiveChanged",
                             "line": 280,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -216,7 +216,7 @@
                         {
                             "codegenResult": 2,
                             "column": 17,
-                            "durationMicroseconds": 36,
+                            "durationMicroseconds": 11,
                             "functionName": "target",
                             "line": 290,
                             "message": "Cannot retrieve a non-object type by ID: root"
@@ -234,39 +234,39 @@
                             "column": 9,
                             "durationMicroseconds": 8,
                             "functionName": "onCleared",
-                            "line": 322,
+                            "line": 325,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 2,
                             "column": 9,
-                            "durationMicroseconds": 23,
+                            "durationMicroseconds": 24,
                             "functionName": "onFrameCompleted",
-                            "line": 326,
+                            "line": 329,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 2,
                             "column": 22,
-                            "durationMicroseconds": 50,
+                            "durationMicroseconds": 51,
                             "functionName": "onTriggered",
-                            "line": 337,
+                            "line": 340,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 2,
                             "column": 28,
-                            "durationMicroseconds": 130,
+                            "durationMicroseconds": 169,
                             "functionName": "onCompleted",
-                            "line": 347,
+                            "line": 350,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 2,
                             "column": 17,
-                            "durationMicroseconds": 7,
+                            "durationMicroseconds": 9,
                             "functionName": "target",
-                            "line": 364,
+                            "line": 367,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -274,15 +274,15 @@
                             "column": 9,
                             "durationMicroseconds": 162,
                             "functionName": "onAxesChanged",
-                            "line": 366,
+                            "line": 369,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 23,
-                            "durationMicroseconds": 39,
+                            "durationMicroseconds": 49,
                             "functionName": "fill",
-                            "line": 393,
+                            "line": 396,
                             "message": ""
                         },
                         {
@@ -290,7 +290,7 @@
                             "column": 27,
                             "durationMicroseconds": 26,
                             "functionName": "fill",
-                            "line": 401,
+                            "line": 404,
                             "message": ""
                         },
                         {
@@ -298,15 +298,15 @@
                             "column": 24,
                             "durationMicroseconds": 8,
                             "functionName": "color",
-                            "line": 409,
+                            "line": 412,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 35,
-                            "durationMicroseconds": 25,
+                            "durationMicroseconds": 27,
                             "functionName": "fill",
-                            "line": 412,
+                            "line": 415,
                             "message": ""
                         },
                         {
@@ -314,7 +314,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 427,
+                            "line": 430,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -322,7 +322,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 428,
+                            "line": 431,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -330,7 +330,7 @@
                             "column": 31,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 467,
+                            "line": 470,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -338,7 +338,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 468,
+                            "line": 471,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -346,7 +346,7 @@
                             "column": 35,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 486,
+                            "line": 489,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -354,7 +354,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "verticalAlignment",
-                            "line": 488,
+                            "line": 491,
                             "message": "Could not find property \"verticalAlignment\"."
                         },
                         {
@@ -362,7 +362,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 489,
+                            "line": 492,
                             "message": "Could not find property \"elide\"."
                         },
                         {
@@ -370,7 +370,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "fill",
-                            "line": 484,
+                            "line": 487,
                             "message": "Could not find property \"fill\"."
                         },
                         {
@@ -378,7 +378,7 @@
                             "column": 30,
                             "durationMicroseconds": 0,
                             "functionName": "orientation",
-                            "line": 498,
+                            "line": 501,
                             "message": "Could not find property \"orientation\"."
                         },
                         {
@@ -386,7 +386,7 @@
                             "column": 28,
                             "durationMicroseconds": 8,
                             "functionName": "color",
-                            "line": 505,
+                            "line": 508,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -394,31 +394,31 @@
                             "column": 35,
                             "durationMicroseconds": 7,
                             "functionName": "color",
-                            "line": 507,
+                            "line": 510,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 39,
-                            "durationMicroseconds": 23,
+                            "durationMicroseconds": 25,
                             "functionName": "fill",
-                            "line": 510,
+                            "line": 513,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
                             "column": 36,
-                            "durationMicroseconds": 8,
+                            "durationMicroseconds": 10,
                             "functionName": "color",
-                            "line": 518,
+                            "line": 521,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 47,
-                            "durationMicroseconds": 22,
+                            "durationMicroseconds": 25,
                             "functionName": "fill",
-                            "line": 521,
+                            "line": 524,
                             "message": ""
                         },
                         {
@@ -426,7 +426,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 527,
+                            "line": 530,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -434,7 +434,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 541,
+                            "line": 544,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -442,7 +442,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 547,
+                            "line": 550,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -450,7 +450,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 553,
+                            "line": 556,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -458,7 +458,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 571,
+                            "line": 574,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -466,7 +466,7 @@
                             "column": 40,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 584,
+                            "line": 587,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -474,7 +474,7 @@
                             "column": 36,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 612,
+                            "line": 615,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -482,7 +482,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "onTextChanged",
-                            "line": 623,
+                            "line": 626,
                             "message": "Could not find signal \"textChanged\"."
                         },
                         {
@@ -490,7 +490,7 @@
                             "column": 42,
                             "durationMicroseconds": 0,
                             "functionName": "checked",
-                            "line": 628,
+                            "line": 631,
                             "message": "Could not find property \"checked\"."
                         },
                         {
@@ -498,7 +498,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "onToggled",
-                            "line": 629,
+                            "line": 632,
                             "message": "Could not find signal \"toggled\"."
                         },
                         {
@@ -506,15 +506,15 @@
                             "column": 36,
                             "durationMicroseconds": 8,
                             "functionName": "color",
-                            "line": 637,
+                            "line": 640,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 47,
-                            "durationMicroseconds": 26,
+                            "durationMicroseconds": 23,
                             "functionName": "fill",
-                            "line": 640,
+                            "line": 643,
                             "message": ""
                         },
                         {
@@ -522,7 +522,7 @@
                             "column": 36,
                             "durationMicroseconds": 9,
                             "functionName": "model",
-                            "line": 663,
+                            "line": 666,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -530,47 +530,47 @@
                             "column": 73,
                             "durationMicroseconds": 35,
                             "functionName": "visibleByFilter",
-                            "line": 678,
+                            "line": 681,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 40,
-                            "durationMicroseconds": 101,
+                            "durationMicroseconds": 63,
                             "functionName": "width",
-                            "line": 687,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 41,
-                            "durationMicroseconds": 75,
-                            "functionName": "height",
-                            "line": 688,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 42,
-                            "durationMicroseconds": 25,
-                            "functionName": "visible",
-                            "line": 689,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 40,
-                            "durationMicroseconds": 144,
-                            "functionName": "color",
                             "line": 690,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
-                            "column": 51,
-                            "durationMicroseconds": 29,
-                            "functionName": "fill",
+                            "column": 41,
+                            "durationMicroseconds": 56,
+                            "functionName": "height",
+                            "line": 691,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 42,
+                            "durationMicroseconds": 20,
+                            "functionName": "visible",
+                            "line": 692,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 40,
+                            "durationMicroseconds": 138,
+                            "functionName": "color",
                             "line": 693,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 51,
+                            "durationMicroseconds": 25,
+                            "functionName": "fill",
+                            "line": 696,
                             "message": ""
                         },
                         {
@@ -578,7 +578,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "checked",
-                            "line": 700,
+                            "line": 703,
                             "message": "Could not find property \"checked\"."
                         },
                         {
@@ -586,24 +586,8 @@
                             "column": 52,
                             "durationMicroseconds": 0,
                             "functionName": "onToggled",
-                            "line": 701,
+                            "line": 704,
                             "message": "Could not find signal \"toggled\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 47,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
-                            "line": 712,
-                            "message": "Could not find property \"text\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 48,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 713,
-                            "message": "Could not find property \"color\"."
                         },
                         {
                             "codegenResult": 2,
@@ -639,18 +623,10 @@
                         },
                         {
                             "codegenResult": 2,
-                            "column": 48,
-                            "durationMicroseconds": 0,
-                            "functionName": "elide",
-                            "line": 726,
-                            "message": "Could not find property \"elide\"."
-                        },
-                        {
-                            "codegenResult": 2,
                             "column": 47,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 731,
+                            "line": 730,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -658,8 +634,16 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 732,
+                            "line": 731,
                             "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
+                            "functionName": "elide",
+                            "line": 732,
+                            "message": "Could not find property \"elide\"."
                         },
                         {
                             "codegenResult": 2,
@@ -689,8 +673,24 @@
                             "codegenResult": 2,
                             "column": 48,
                             "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 744,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 47,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 749,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 48,
+                            "durationMicroseconds": 0,
                             "functionName": "elide",
-                            "line": 745,
+                            "line": 751,
                             "message": "Could not find property \"elide\"."
                         },
                         {
@@ -698,7 +698,7 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 751,
+                            "line": 757,
                             "message": "Could not find property \"enabled\"."
                         },
                         {
@@ -706,7 +706,7 @@
                             "column": 58,
                             "durationMicroseconds": 0,
                             "functionName": "placeholderText",
-                            "line": 752,
+                            "line": 758,
                             "message": "Could not find property \"placeholderText\"."
                         },
                         {
@@ -714,16 +714,8 @@
                             "column": 50,
                             "durationMicroseconds": 0,
                             "functionName": "enabled",
-                            "line": 759,
+                            "line": 765,
                             "message": "Could not find property \"enabled\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 52,
-                            "durationMicroseconds": 0,
-                            "functionName": "onClicked",
-                            "line": 760,
-                            "message": "Could not find signal \"clicked\"."
                         },
                         {
                             "codegenResult": 2,
@@ -735,10 +727,18 @@
                         },
                         {
                             "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 0,
+                            "functionName": "onClicked",
+                            "line": 772,
+                            "message": "Could not find signal \"clicked\"."
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 28,
-                            "durationMicroseconds": 12,
+                            "durationMicroseconds": 9,
                             "functionName": "color",
-                            "line": 779,
+                            "line": 785,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -746,23 +746,23 @@
                             "column": 35,
                             "durationMicroseconds": 8,
                             "functionName": "color",
-                            "line": 781,
+                            "line": 787,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 39,
-                            "durationMicroseconds": 30,
+                            "durationMicroseconds": 23,
                             "functionName": "fill",
-                            "line": 784,
+                            "line": 790,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
                             "column": 36,
-                            "durationMicroseconds": 9,
+                            "durationMicroseconds": 10,
                             "functionName": "color",
-                            "line": 792,
+                            "line": 798,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -770,7 +770,7 @@
                             "column": 47,
                             "durationMicroseconds": 23,
                             "functionName": "fill",
-                            "line": 795,
+                            "line": 801,
                             "message": ""
                         },
                         {
@@ -778,7 +778,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 802,
+                            "line": 808,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -786,7 +786,7 @@
                             "column": 64,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 811,
+                            "line": 817,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -794,7 +794,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "value",
-                            "line": 816,
+                            "line": 822,
                             "message": "Could not find property \"value\"."
                         },
                         {
@@ -802,7 +802,7 @@
                             "column": 54,
                             "durationMicroseconds": 0,
                             "functionName": "onValueModified",
-                            "line": 818,
+                            "line": 824,
                             "message": "Could not find signal \"valueModified\"."
                         },
                         {
@@ -810,7 +810,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 823,
+                            "line": 829,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -818,7 +818,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 835,
+                            "line": 841,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -826,7 +826,7 @@
                             "column": 48,
                             "durationMicroseconds": 0,
                             "functionName": "onClicked",
-                            "line": 836,
+                            "line": 842,
                             "message": "Could not find signal \"clicked\"."
                         },
                         {
@@ -834,15 +834,15 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 847,
+                            "line": 853,
                             "message": "Could not find property \"color\"."
                         },
                         {
                             "codegenResult": 2,
                             "column": 49,
-                            "durationMicroseconds": 32,
+                            "durationMicroseconds": 30,
                             "functionName": "onWidthChanged",
-                            "line": 866,
+                            "line": 872,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -850,7 +850,7 @@
                             "column": 47,
                             "durationMicroseconds": 21,
                             "functionName": "fill",
-                            "line": 864,
+                            "line": 870,
                             "message": ""
                         },
                         {
@@ -858,7 +858,7 @@
                             "column": 42,
                             "durationMicroseconds": 9,
                             "functionName": "min",
-                            "line": 876,
+                            "line": 882,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -866,7 +866,7 @@
                             "column": 42,
                             "durationMicroseconds": 8,
                             "functionName": "max",
-                            "line": 877,
+                            "line": 883,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -874,7 +874,7 @@
                             "column": 42,
                             "durationMicroseconds": 8,
                             "functionName": "min",
-                            "line": 882,
+                            "line": 888,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -882,95 +882,95 @@
                             "column": 42,
                             "durationMicroseconds": 7,
                             "functionName": "max",
-                            "line": 883,
+                            "line": 889,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 50,
-                            "durationMicroseconds": 53,
+                            "durationMicroseconds": 59,
                             "functionName": "acceptedButtons",
-                            "line": 891,
+                            "line": 897,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 44,
-                            "durationMicroseconds": 177,
+                            "durationMicroseconds": 141,
                             "functionName": "onPressed",
-                            "line": 899,
+                            "line": 905,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 44,
-                            "durationMicroseconds": 20,
+                            "durationMicroseconds": 19,
                             "functionName": "onPressed",
-                            "line": 899,
-                            "message": ""
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 52,
-                            "durationMicroseconds": 398,
-                            "functionName": "onPositionChanged",
-                            "line": 905,
-                            "message": "Cannot retrieve a non-object type by ID: root"
-                        },
-                        {
-                            "codegenResult": 0,
-                            "column": 52,
-                            "durationMicroseconds": 18,
-                            "functionName": "onPositionChanged",
                             "line": 905,
                             "message": ""
                         },
                         {
                             "codegenResult": 2,
+                            "column": 52,
+                            "durationMicroseconds": 387,
+                            "functionName": "onPositionChanged",
+                            "line": 911,
+                            "message": "Cannot retrieve a non-object type by ID: root"
+                        },
+                        {
+                            "codegenResult": 0,
+                            "column": 52,
+                            "durationMicroseconds": 17,
+                            "functionName": "onPositionChanged",
+                            "line": 911,
+                            "message": ""
+                        },
+                        {
+                            "codegenResult": 2,
                             "column": 42,
-                            "durationMicroseconds": 375,
+                            "durationMicroseconds": 331,
                             "functionName": "onWheel",
-                            "line": 943,
+                            "line": 949,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
                             "codegenResult": 0,
                             "column": 42,
-                            "durationMicroseconds": 29,
+                            "durationMicroseconds": 15,
                             "functionName": "onWheel",
-                            "line": 943,
+                            "line": 949,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 47,
-                            "durationMicroseconds": 36,
+                            "durationMicroseconds": 24,
                             "functionName": "fill",
-                            "line": 890,
+                            "line": 896,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 46,
-                            "durationMicroseconds": 53,
+                            "durationMicroseconds": 50,
                             "functionName": "top",
-                            "line": 970,
+                            "line": 976,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 49,
-                            "durationMicroseconds": 39,
+                            "durationMicroseconds": 42,
                             "functionName": "bottom",
-                            "line": 971,
+                            "line": 977,
                             "message": ""
                         },
                         {
                             "codegenResult": 0,
                             "column": 48,
-                            "durationMicroseconds": 44,
+                            "durationMicroseconds": 40,
                             "functionName": "right",
-                            "line": 972,
+                            "line": 978,
                             "message": ""
                         },
                         {
@@ -978,7 +978,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 981,
+                            "line": 987,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -986,7 +986,7 @@
                             "column": 55,
                             "durationMicroseconds": 0,
                             "functionName": "centerIn",
-                            "line": 979,
+                            "line": 985,
                             "message": "Could not find property \"centerIn\"."
                         },
                         {
@@ -994,7 +994,7 @@
                             "column": 47,
                             "durationMicroseconds": 24,
                             "functionName": "fill",
-                            "line": 994,
+                            "line": 1000,
                             "message": ""
                         },
                         {
@@ -1002,7 +1002,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 999,
+                            "line": 1005,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -1010,23 +1010,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1002,
-                            "message": "Could not find property \"color\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 43,
-                            "durationMicroseconds": 0,
-                            "functionName": "text",
                             "line": 1008,
-                            "message": "Could not find property \"text\"."
-                        },
-                        {
-                            "codegenResult": 2,
-                            "column": 44,
-                            "durationMicroseconds": 0,
-                            "functionName": "color",
-                            "line": 1010,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -1042,7 +1026,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1015,
+                            "line": 1016,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -1058,7 +1042,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1022,
+                            "line": 1021,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -1090,7 +1074,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1035,
+                            "line": 1034,
                             "message": "Could not find property \"color\"."
                         },
                         {
@@ -1098,7 +1082,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 1039,
+                            "line": 1038,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -1106,15 +1090,31 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1040,
+                            "line": 1041,
+                            "message": "Could not find property \"color\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 43,
+                            "durationMicroseconds": 0,
+                            "functionName": "text",
+                            "line": 1045,
+                            "message": "Could not find property \"text\"."
+                        },
+                        {
+                            "codegenResult": 2,
+                            "column": 44,
+                            "durationMicroseconds": 0,
+                            "functionName": "color",
+                            "line": 1046,
                             "message": "Could not find property \"color\"."
                         },
                         {
                             "codegenResult": 2,
                             "column": 44,
-                            "durationMicroseconds": 42,
+                            "durationMicroseconds": 31,
                             "functionName": "color",
-                            "line": 1047,
+                            "line": 1053,
                             "message": "Cannot retrieve a non-object type by ID: root"
                         },
                         {
@@ -1122,7 +1122,7 @@
                             "column": 43,
                             "durationMicroseconds": 0,
                             "functionName": "text",
-                            "line": 1051,
+                            "line": 1057,
                             "message": "Could not find property \"text\"."
                         },
                         {
@@ -1130,7 +1130,7 @@
                             "column": 44,
                             "durationMicroseconds": 0,
                             "functionName": "color",
-                            "line": 1052,
+                            "line": 1058,
                             "message": "Could not find property \"color\"."
                         }
                     ],

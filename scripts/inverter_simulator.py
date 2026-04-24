@@ -147,10 +147,10 @@ def encode_typed(type_code: int, value: int | float) -> bytes:
 
 PARAMETERS: List[ParamDef] = [
     ParamDef(0x1000, TYPE_UINT16, ACCESS_WRITE_AFTER_RESTART, 0x01, "ADC_STEPS", "", 4096),
-    ParamDef(0x1001, TYPE_FLOAT32, ACCESS_WRITE_AFTER_RESTART, 0x01, "ADC_SUPPLY", "mV", 5000.0),
-    ParamDef(0x1100, TYPE_UINT16, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_OFFS_U", "", 1361),
-    ParamDef(0x1101, TYPE_UINT16, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_OFFS_V", "", 1366),
-    ParamDef(0x1102, TYPE_FLOAT32, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_SENSE_FAC", "A/", 0.01),
+    ParamDef(0x1001, TYPE_FLOAT32, ACCESS_WRITE_AFTER_RESTART, 0x01, "ADC_SUPPLY", "V", 3.3),
+    ParamDef(0x1100, TYPE_UINT16, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_OFFS_U", "", 2048),
+    ParamDef(0x1101, TYPE_UINT16, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_OFFS_V", "", 2048),
+    ParamDef(0x1102, TYPE_FLOAT32, ACCESS_WRITE_AFTER_RESTART, 0x02, "CUR_SENSE_FAC", "V/A", 0.01),
     ParamDef(0x1200, TYPE_UINT32, ACCESS_WRITE_AFTER_RESTART, 0x03, "PWM_FREQ", "Hz", 20000),
     ParamDef(0x1300, TYPE_UINT8, ACCESS_WRITE_AFTER_RESTART, 0x04, "MOTOR_POLES", "", 7),
     ParamDef(0x1301, TYPE_FLOAT32, ACCESS_WRITE_LIVE, 0x04, "SPEED_REF", "Hz", 3.0),
@@ -328,12 +328,15 @@ class InverterSimulator:
         self._send_error(conn, 0x0000, ERR_OTHER)
 
     def _handle_dictionary(self, conn: socket.socket, payload: bytes) -> None:
-        if payload:
+        if len(payload) != 1:
             self._send_error(conn, 0x0000, ERR_OTHER)
             return
 
+        group_id = payload[0]
         records: List[bytes] = []
         for p in PARAMETERS:
+            if group_id != 0xFF and p.group_id != group_id:
+                continue
             ctrl = (p.type_code & 0x0F) | ((p.access & 0x03) << 4)
             record = struct.pack("<HBB", p.address, ctrl, p.group_id)
             record += pad_ascii(p.name, 16)

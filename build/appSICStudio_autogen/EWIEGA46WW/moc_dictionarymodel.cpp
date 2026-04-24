@@ -42,6 +42,8 @@ template <> constexpr inline auto DictionaryModel::qt_create_metaobjectdata<qt_m
         "selectedPlotAddresses",
         "QVariantList",
         "",
+        "isPlotEnabledAddress",
+        "address",
         "setPlotEnabledByRow",
         "row",
         "enabled",
@@ -52,17 +54,21 @@ template <> constexpr inline auto DictionaryModel::qt_create_metaobjectdata<qt_m
     QtMocHelpers::UintData qt_methods {
         // Method 'selectedPlotAddresses'
         QtMocHelpers::MethodData<QVariantList() const>(1, 3, QMC::AccessPublic, 0x80000000 | 2),
+        // Method 'isPlotEnabledAddress'
+        QtMocHelpers::MethodData<bool(int) const>(4, 3, QMC::AccessPublic, QMetaType::Bool, {{
+            { QMetaType::Int, 5 },
+        }}),
         // Method 'setPlotEnabledByRow'
-        QtMocHelpers::MethodData<void(int, bool)>(4, 3, QMC::AccessPublic, QMetaType::Void, {{
-            { QMetaType::Int, 5 }, { QMetaType::Bool, 6 },
+        QtMocHelpers::MethodData<void(int, bool)>(6, 3, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::Int, 7 }, { QMetaType::Bool, 8 },
         }}),
         // Method 'addressAt'
-        QtMocHelpers::MethodData<int(int) const>(7, 3, QMC::AccessPublic, QMetaType::Int, {{
-            { QMetaType::Int, 5 },
+        QtMocHelpers::MethodData<int(int) const>(9, 3, QMC::AccessPublic, QMetaType::Int, {{
+            { QMetaType::Int, 7 },
         }}),
         // Method 'isEditableAt'
-        QtMocHelpers::MethodData<bool(int) const>(8, 3, QMC::AccessPublic, QMetaType::Bool, {{
-            { QMetaType::Int, 5 },
+        QtMocHelpers::MethodData<bool(int) const>(10, 3, QMC::AccessPublic, QMetaType::Bool, {{
+            { QMetaType::Int, 7 },
         }}),
     };
     QtMocHelpers::UintData qt_properties {
@@ -89,10 +95,12 @@ void DictionaryModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         switch (_id) {
         case 0: { QVariantList _r = _t->selectedPlotAddresses();
             if (_a[0]) *reinterpret_cast<QVariantList*>(_a[0]) = std::move(_r); }  break;
-        case 1: _t->setPlotEnabledByRow((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
-        case 2: { int _r = _t->addressAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 1: { bool _r = _t->isPlotEnabledAddress((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+            if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
+        case 2: _t->setPlotEnabledByRow((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast<std::add_pointer_t<bool>>(_a[2]))); break;
+        case 3: { int _r = _t->addressAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<int*>(_a[0]) = std::move(_r); }  break;
-        case 3: { bool _r = _t->isEditableAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
+        case 4: { bool _r = _t->isEditableAt((*reinterpret_cast<std::add_pointer_t<int>>(_a[1])));
             if (_a[0]) *reinterpret_cast<bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -118,14 +126,14 @@ int DictionaryModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

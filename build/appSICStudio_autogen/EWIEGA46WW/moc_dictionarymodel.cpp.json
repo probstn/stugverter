@@ -16,6 +16,20 @@
                     "access": "public",
                     "arguments": [
                         {
+                            "name": "address",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 1,
+                    "isConst": true,
+                    "lineNumber": 75,
+                    "name": "isPlotEnabledAddress",
+                    "returnType": "bool"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
                             "name": "row",
                             "type": "int"
                         },
@@ -24,24 +38,10 @@
                             "type": "bool"
                         }
                     ],
-                    "index": 1,
-                    "lineNumber": 75,
+                    "index": 2,
+                    "lineNumber": 76,
                     "name": "setPlotEnabledByRow",
                     "returnType": "void"
-                },
-                {
-                    "access": "public",
-                    "arguments": [
-                        {
-                            "name": "row",
-                            "type": "int"
-                        }
-                    ],
-                    "index": 2,
-                    "isConst": true,
-                    "lineNumber": 76,
-                    "name": "addressAt",
-                    "returnType": "int"
                 },
                 {
                     "access": "public",
@@ -54,6 +54,20 @@
                     "index": 3,
                     "isConst": true,
                     "lineNumber": 77,
+                    "name": "addressAt",
+                    "returnType": "int"
+                },
+                {
+                    "access": "public",
+                    "arguments": [
+                        {
+                            "name": "row",
+                            "type": "int"
+                        }
+                    ],
+                    "index": 4,
+                    "isConst": true,
+                    "lineNumber": 78,
                     "name": "isEditableAt",
                     "returnType": "bool"
                 }

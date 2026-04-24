@@ -292,7 +292,7 @@
         },
         {
             "className": "PlotController",
-            "lineNumber": 115,
+            "lineNumber": 116,
             "methods": [
                 {
                     "access": "public",
@@ -311,28 +311,28 @@
                         }
                     ],
                     "index": 23,
-                    "lineNumber": 169,
+                    "lineNumber": 170,
                     "name": "setSeriesEnabled",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 24,
-                    "lineNumber": 170,
+                    "lineNumber": 171,
                     "name": "clear",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 25,
-                    "lineNumber": 171,
+                    "lineNumber": 172,
                     "name": "syncTargetFpsToPrimaryScreen",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 26,
-                    "lineNumber": 172,
+                    "lineNumber": 173,
                     "name": "requestRefresh",
                     "returnType": "void"
                 },
@@ -349,14 +349,14 @@
                         }
                     ],
                     "index": 27,
-                    "lineNumber": 173,
+                    "lineNumber": 174,
                     "name": "requestViewFrame",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 28,
-                    "lineNumber": 174,
+                    "lineNumber": 175,
                     "name": "clearViewFrame",
                     "returnType": "void"
                 }
@@ -368,7 +368,7 @@
                     "designable": true,
                     "final": false,
                     "index": 0,
-                    "lineNumber": 118,
+                    "lineNumber": 119,
                     "name": "xMin",
                     "notify": "axesChanged",
                     "override": false,
@@ -385,7 +385,7 @@
                     "designable": true,
                     "final": false,
                     "index": 1,
-                    "lineNumber": 119,
+                    "lineNumber": 120,
                     "name": "xMax",
                     "notify": "axesChanged",
                     "override": false,
@@ -402,7 +402,7 @@
                     "designable": true,
                     "final": false,
                     "index": 2,
-                    "lineNumber": 120,
+                    "lineNumber": 121,
                     "name": "yMin",
                     "notify": "axesChanged",
                     "override": false,
@@ -419,7 +419,7 @@
                     "designable": true,
                     "final": false,
                     "index": 3,
-                    "lineNumber": 121,
+                    "lineNumber": 122,
                     "name": "yMax",
                     "notify": "axesChanged",
                     "override": false,
@@ -436,7 +436,7 @@
                     "designable": true,
                     "final": false,
                     "index": 4,
-                    "lineNumber": 122,
+                    "lineNumber": 123,
                     "name": "bufferMinX",
                     "notify": "bufferRangeChanged",
                     "override": false,
@@ -453,7 +453,7 @@
                     "designable": true,
                     "final": false,
                     "index": 5,
-                    "lineNumber": 123,
+                    "lineNumber": 124,
                     "name": "bufferMaxX",
                     "notify": "bufferRangeChanged",
                     "override": false,
@@ -470,7 +470,7 @@
                     "designable": true,
                     "final": false,
                     "index": 6,
-                    "lineNumber": 124,
+                    "lineNumber": 125,
                     "name": "minSampleSpacing",
                     "notify": "bufferRangeChanged",
                     "override": false,
@@ -487,7 +487,7 @@
                     "designable": true,
                     "final": false,
                     "index": 7,
-                    "lineNumber": 125,
+                    "lineNumber": 126,
                     "name": "windowSeconds",
                     "notify": "windowSecondsChanged",
                     "override": false,
@@ -505,7 +505,7 @@
                     "designable": true,
                     "final": false,
                     "index": 8,
-                    "lineNumber": 126,
+                    "lineNumber": 127,
                     "name": "renderWindowSeconds",
                     "notify": "renderWindowSecondsChanged",
                     "override": false,
@@ -523,7 +523,7 @@
                     "designable": true,
                     "final": false,
                     "index": 9,
-                    "lineNumber": 127,
+                    "lineNumber": 128,
                     "name": "retentionSeconds",
                     "notify": "retentionSecondsChanged",
                     "override": false,
@@ -541,7 +541,7 @@
                     "designable": true,
                     "final": false,
                     "index": 10,
-                    "lineNumber": 128,
+                    "lineNumber": 129,
                     "name": "maxPointsPerSeries",
                     "notify": "maxPointsPerSeriesChanged",
                     "override": false,
@@ -559,7 +559,7 @@
                     "designable": true,
                     "final": false,
                     "index": 11,
-                    "lineNumber": 129,
+                    "lineNumber": 130,
                     "name": "displayPointBudget",
                     "notify": "displayPointBudgetChanged",
                     "override": false,
@@ -577,7 +577,7 @@
                     "designable": true,
                     "final": false,
                     "index": 12,
-                    "lineNumber": 130,
+                    "lineNumber": 131,
                     "name": "targetFps",
                     "notify": "targetFpsChanged",
                     "override": false,
@@ -595,7 +595,7 @@
                     "designable": true,
                     "final": false,
                     "index": 13,
-                    "lineNumber": 131,
+                    "lineNumber": 132,
                     "name": "renderingEnabled",
                     "notify": "renderingEnabledChanged",
                     "override": false,
@@ -613,7 +613,7 @@
                     "designable": true,
                     "final": false,
                     "index": 14,
-                    "lineNumber": 132,
+                    "lineNumber": 133,
                     "name": "inputSamplesPerSecond",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -630,7 +630,7 @@
                     "designable": true,
                     "final": false,
                     "index": 15,
-                    "lineNumber": 133,
+                    "lineNumber": 134,
                     "name": "outputPointsPerSecond",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -647,7 +647,7 @@
                     "designable": true,
                     "final": false,
                     "index": 16,
-                    "lineNumber": 134,
+                    "lineNumber": 135,
                     "name": "renderFramesPerSecond",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -664,7 +664,7 @@
                     "designable": true,
                     "final": false,
                     "index": 17,
-                    "lineNumber": 135,
+                    "lineNumber": 136,
                     "name": "lastFrameBuildMs",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -681,7 +681,7 @@
                     "designable": true,
                     "final": false,
                     "index": 18,
-                    "lineNumber": 136,
+                    "lineNumber": 137,
                     "name": "avgFrameBuildMs",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -698,7 +698,7 @@
                     "designable": true,
                     "final": false,
                     "index": 19,
-                    "lineNumber": 137,
+                    "lineNumber": 138,
                     "name": "displayedPointCount",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -715,7 +715,7 @@
                     "designable": true,
                     "final": false,
                     "index": 20,
-                    "lineNumber": 138,
+                    "lineNumber": 139,
                     "name": "decimationRatio",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -732,7 +732,7 @@
                     "designable": true,
                     "final": false,
                     "index": 21,
-                    "lineNumber": 139,
+                    "lineNumber": 140,
                     "name": "coalescedFrameRequests",
                     "notify": "telemetryChanged",
                     "override": false,
@@ -764,91 +764,91 @@
                         }
                     ],
                     "index": 0,
-                    "lineNumber": 188,
+                    "lineNumber": 189,
                     "name": "seriesFrame",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 1,
-                    "lineNumber": 189,
+                    "lineNumber": 190,
                     "name": "axesChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 2,
-                    "lineNumber": 190,
+                    "lineNumber": 191,
                     "name": "bufferRangeChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 3,
-                    "lineNumber": 191,
+                    "lineNumber": 192,
                     "name": "windowSecondsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 4,
-                    "lineNumber": 192,
+                    "lineNumber": 193,
                     "name": "renderWindowSecondsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 5,
-                    "lineNumber": 193,
+                    "lineNumber": 194,
                     "name": "retentionSecondsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 6,
-                    "lineNumber": 194,
+                    "lineNumber": 195,
                     "name": "maxPointsPerSeriesChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 7,
-                    "lineNumber": 195,
+                    "lineNumber": 196,
                     "name": "displayPointBudgetChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 8,
-                    "lineNumber": 196,
+                    "lineNumber": 197,
                     "name": "targetFpsChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 9,
-                    "lineNumber": 197,
+                    "lineNumber": 198,
                     "name": "renderingEnabledChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 10,
-                    "lineNumber": 198,
+                    "lineNumber": 199,
                     "name": "telemetryChanged",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 11,
-                    "lineNumber": 199,
+                    "lineNumber": 200,
                     "name": "cleared",
                     "returnType": "void"
                 },
                 {
                     "access": "public",
                     "index": 12,
-                    "lineNumber": 200,
+                    "lineNumber": 201,
                     "name": "frameCompleted",
                     "returnType": "void"
                 }
@@ -875,7 +875,7 @@
                         }
                     ],
                     "index": 13,
-                    "lineNumber": 177,
+                    "lineNumber": 178,
                     "name": "ingestSample",
                     "returnType": "void"
                 },
@@ -888,7 +888,7 @@
                         }
                     ],
                     "index": 14,
-                    "lineNumber": 178,
+                    "lineNumber": 179,
                     "name": "ingestSamples",
                     "returnType": "void"
                 },
@@ -901,7 +901,7 @@
                         }
                     ],
                     "index": 15,
-                    "lineNumber": 179,
+                    "lineNumber": 180,
                     "name": "setWindowSeconds",
                     "returnType": "void"
                 },
@@ -914,7 +914,7 @@
                         }
                     ],
                     "index": 16,
-                    "lineNumber": 180,
+                    "lineNumber": 181,
                     "name": "setRenderWindowSeconds",
                     "returnType": "void"
                 },
@@ -927,7 +927,7 @@
                         }
                     ],
                     "index": 17,
-                    "lineNumber": 181,
+                    "lineNumber": 182,
                     "name": "setRetentionSeconds",
                     "returnType": "void"
                 },
@@ -940,7 +940,7 @@
                         }
                     ],
                     "index": 18,
-                    "lineNumber": 182,
+                    "lineNumber": 183,
                     "name": "setMaxPointsPerSeries",
                     "returnType": "void"
                 },
@@ -953,7 +953,7 @@
                         }
                     ],
                     "index": 19,
-                    "lineNumber": 183,
+                    "lineNumber": 184,
                     "name": "setDisplayPointBudget",
                     "returnType": "void"
                 },
@@ -966,7 +966,7 @@
                         }
                     ],
                     "index": 20,
-                    "lineNumber": 184,
+                    "lineNumber": 185,
                     "name": "setTargetFps",
                     "returnType": "void"
                 },
@@ -979,7 +979,7 @@
                         }
                     ],
                     "index": 21,
-                    "lineNumber": 185,
+                    "lineNumber": 186,
                     "name": "setRenderingEnabled",
                     "returnType": "void"
                 },
@@ -1052,7 +1052,7 @@
                         }
                     ],
                     "index": 22,
-                    "lineNumber": 203,
+                    "lineNumber": 204,
                     "name": "onFrameReady",
                     "returnType": "void"
                 }
