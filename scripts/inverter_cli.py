@@ -26,7 +26,7 @@ from typing import Dict, List, Optional, Sequence, Tuple
 START_BYTES = b"\xAA\x55"
 MAX_PAYLOAD = 250
 TCP_HEADER_SIZE = 5
-DICT_RECORD_LEN = 24
+DICT_RECORD_LEN = 25
 
 CMD_DICTIONARY = 0x00
 CMD_READ = 0x01
@@ -126,6 +126,7 @@ class DictEntry:
     address: int
     type_code: int
     access: int
+    group_id: int
     name: str
     unit: str
 
@@ -376,10 +377,11 @@ class InverterCli:
                 rec = frame.payload[i: i + DICT_RECORD_LEN]
                 address = rec[0] | (rec[1] << 8)
                 ctrl = rec[2]
+                group_id = rec[3]
                 type_code = ctrl & 0x0F
                 access = (ctrl >> 4) & 0x03
-                name = rec[3:19].decode("ascii", errors="replace").rstrip(" ")
-                unit = rec[19:24].decode("ascii", errors="replace").rstrip(" ")
+                name = rec[4:20].decode("ascii", errors="replace").rstrip(" ")
+                unit = rec[20:25].decode("ascii", errors="replace").rstrip(" ")
 
                 out[address] = DictEntry(
                     address=address,
@@ -745,9 +747,9 @@ class InverterCli:
 
         stream_addrs = [a for a in sorted(dct.keys())[:3]]
         stream_id = self.args.stream_id
-        freq_x100 = self.args.freq_x100
+        loop_divider = 1
 
-        payload = bytes([stream_id]) + struct.pack("<H", freq_x100) + b"".join(struct.pack("<H", a) for a in stream_addrs)
+        payload = bytes([stream_id, loop_divider]) + b"".join(struct.pack("<H", a) for a in stream_addrs)
         self.client.send_frame(CMD_STREAM_START, payload)
         stream_ack = self._expect_frame((CMD_STREAM_ACK,), self.args.tcp_timeout)
         if len(stream_ack.payload) < 2 or stream_ack.payload[0] != stream_id:

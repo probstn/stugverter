@@ -8,7 +8,7 @@
                     "access": "public",
                     "index": 0,
                     "isConst": true,
-                    "lineNumber": 72,
+                    "lineNumber": 74,
                     "name": "selectedPlotAddresses",
                     "returnType": "QVariantList"
                 },
@@ -25,7 +25,7 @@
                         }
                     ],
                     "index": 1,
-                    "lineNumber": 73,
+                    "lineNumber": 75,
                     "name": "setPlotEnabledByRow",
                     "returnType": "void"
                 },
@@ -39,7 +39,7 @@
                     ],
                     "index": 2,
                     "isConst": true,
-                    "lineNumber": 74,
+                    "lineNumber": 76,
                     "name": "addressAt",
                     "returnType": "int"
                 },
@@ -53,7 +53,7 @@
                     ],
                     "index": 3,
                     "isConst": true,
-                    "lineNumber": 75,
+                    "lineNumber": 77,
                     "name": "isEditableAt",
                     "returnType": "bool"
                 }

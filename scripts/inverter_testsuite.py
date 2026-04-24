@@ -21,7 +21,7 @@ from typing import Dict, List, Optional, Tuple
 START_BYTES = b"\xAA\x55"
 MAX_PAYLOAD = 250
 TCP_HEADER_SIZE = 5
-DICT_RECORD_LEN = 24
+DICT_RECORD_LEN = 25
 UDP_STREAM_PORT = 3040
 
 CMD_DICTIONARY = 0x00
@@ -110,6 +110,7 @@ class DictEntry:
     address: int
     type_code: int
     access: int
+    group_id: int
     name: str
     unit: str
 
@@ -381,11 +382,12 @@ class InverterTestSuite:
                 rec = frame.payload[offset: offset + DICT_RECORD_LEN]
                 address = rec[0] | (rec[1] << 8)
                 ctrl = rec[2]
+                group_id = rec[3]
                 type_code = ctrl & 0x0F
                 access = (ctrl >> 4) & 0x03
-                name = rec[3:19].decode("ascii", errors="replace").rstrip(" ")
-                unit = rec[19:24].decode("ascii", errors="replace").rstrip(" ")
-                entries.append(DictEntry(address=address, type_code=type_code, access=access, name=name, unit=unit))
+                name = rec[4:20].decode("ascii", errors="replace").rstrip(" ")
+                unit = rec[20:25].decode("ascii", errors="replace").rstrip(" ")
+                entries.append(DictEntry(address=address, type_code=type_code, access=access, group_id=group_id, name=name, unit=unit))
 
         if not entries:
             raise ProtocolError("dictionary parsed zero entries")
@@ -630,24 +632,24 @@ class InverterTestSuite:
             raise ProtocolError("UDP stream packet missing start bytes")
 
         stream_id = packet[2]
-        seq = packet[3] | (packet[4] << 8)
-        ts = int.from_bytes(packet[5:13], "little", signed=False)
-        count = packet[13]
+        count = packet[3]
+        seq = packet[4] | (packet[5] << 8)
+        ts = int.from_bytes(packet[6:14], "little", signed=False)
 
         if stream_id != expected_id:
             raise ProtocolError(f"UDP stream id mismatch: expected {expected_id}, got {stream_id}")
-        if count != len(entries):
-            raise ProtocolError(f"UDP count mismatch: expected {len(entries)}, got {count}")
 
-        expected_data_len = sum(e.size for e in entries)
-        data = packet[14:]
-        if len(data) != expected_data_len:
-            raise ProtocolError(f"UDP data length mismatch: expected {expected_data_len}, got {len(data)}")
+        if count == 0:
+            raise ProtocolError(f"UDP packet contains 0 samples. Packet hex: {packet.hex()}")
+
+        expected_data_len = count * (10 + sum(e.size for e in entries))
+        if len(packet) - 4 != expected_data_len:
+            raise ProtocolError(f"UDP data length mismatch: packet length {len(packet)} vs expected data {expected_data_len}")
 
         decoded: Dict[int, object] = {}
-        offset = 0
+        offset = 14
         for entry in entries:
-            part = data[offset:offset + entry.size]
+            part = packet[offset:offset + entry.size]
             decoded[entry.address] = self._decode_by_entry(entry, part)
             offset += entry.size
 
@@ -663,8 +665,9 @@ class InverterTestSuite:
         regs = [e.address for e in stream_candidates]
 
         udp = self._open_udp_listener()
+        loop_divider = 1
         try:
-            payload = bytes([stream_id]) + struct.pack("<H", freq_x100) + b"".join(struct.pack("<H", a) for a in regs)
+            payload = bytes([stream_id, loop_divider]) + b"".join(struct.pack("<H", a) for a in regs)
             self.client.send_frame(CMD_STREAM_START, payload)
 
             ack = self._expect_frame((CMD_STREAM_ACK,), self.args.tcp_timeout)

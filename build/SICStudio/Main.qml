@@ -55,7 +55,7 @@ ApplicationWindow {
         return base.toLowerCase().indexOf(query.toLowerCase()) >= 0
     }
 
-    function rowMatchesFilter(address, name, unit, typeName, accessName, plotEnabled) {
+    function rowMatchesFilter(address, groupId, name, unit, typeName, accessName, plotEnabled) {
         if (root.showPlotOnly && !plotEnabled) {
             return false
         }
@@ -67,7 +67,8 @@ ApplicationWindow {
             return true
         }
         const addressHex = "0x" + address.toString(16).padStart(4, "0")
-        const bucket = name + " " + unit + " " + typeName + " " + accessName + " " + addressHex
+        const groupHex = "0x" + groupId.toString(16).padStart(2, "0")
+        const bucket = name + " " + unit + " " + typeName + " " + accessName + " " + addressHex + " " + groupHex
         return containsText(bucket, query)
     }
 
@@ -348,7 +349,7 @@ ApplicationWindow {
         root.plotControllerObj.renderWindowSeconds = 40
         root.plotControllerObj.retentionSeconds = 180
         root.plotControllerObj.maxPointsPerSeries = 5000
-        root.plotControllerObj.displayPointBudget = Math.max(800, Math.floor(mainTrendView.width * 2.2))
+        root.plotControllerObj.displayPointBudget = Math.max(600, Math.floor(mainTrendView.width * 1.6))
         root.plotControllerObj.syncTargetFpsToPrimaryScreen()
         root.plotControllerObj.renderingEnabled = true
         root.xViewMin = root.plotControllerObj.xMin
@@ -548,7 +549,7 @@ ApplicationWindow {
 
                             Button {
                                 Layout.fillWidth: true
-                                text: "Commit Configuration"
+                                text: "Commit && Activate Configuration"
                                 onClicked: root.inverterClientObj.commitConfig()
                             }
                         }
@@ -617,7 +618,7 @@ ApplicationWindow {
 
                             TextField {
                                 Layout.fillWidth: true
-                                placeholderText: "Search name, address, unit, type"
+                                placeholderText: "Search name, address, group, unit, type"
                                 selectByMouse: true
                                 onTextChanged: root.searchText = text
                             }
@@ -643,7 +644,8 @@ ApplicationWindow {
 
                                 Label { Layout.preferredWidth: 42; text: "Plot"; font.bold: true }
                                 Label { Layout.preferredWidth: 78; text: "Addr"; font.bold: true }
-                                Label { Layout.preferredWidth: 165; text: "Name"; font.bold: true }
+                                Label { Layout.preferredWidth: 46; text: "Grp"; font.bold: true }
+                                Label { Layout.preferredWidth: 130; text: "Name"; font.bold: true }
                                 Label { Layout.preferredWidth: 50; text: "Type"; font.bold: true }
                                 Label { Layout.preferredWidth: 50; text: "Acc"; font.bold: true }
                                 Label { Layout.preferredWidth: 90; text: "Value"; font.bold: true }
@@ -664,6 +666,7 @@ ApplicationWindow {
                                 id: rowDelegate
                                 required property int index
                                 required property int address
+                                required property int groupId
                                 required property string name
                                 required property string typeName
                                 required property string accessName
@@ -674,6 +677,7 @@ ApplicationWindow {
 
                                 readonly property bool visibleByFilter: root.rowMatchesFilter(
                                                                           rowDelegate.address,
+                                                                          rowDelegate.groupId,
                                                                           rowDelegate.name,
                                                                           rowDelegate.unit,
                                                                           rowDelegate.typeName,
@@ -710,7 +714,13 @@ ApplicationWindow {
                                     }
 
                                     Label {
-                                        Layout.preferredWidth: 165
+                                        Layout.preferredWidth: 46
+                                        text: "0x" + rowDelegate.groupId.toString(16).padStart(2, "0")
+                                        color: root.textMuted
+                                    }
+
+                                    Label {
+                                        Layout.preferredWidth: 130
                                         text: rowDelegate.name
                                         color: root.textPrimary
                                         elide: Text.ElideRight
@@ -854,7 +864,7 @@ ApplicationWindow {
                                 anchors.fill: parent
                                 anchors.margins: 6
                                 onWidthChanged: {
-                                    root.plotControllerObj.displayPointBudget = Math.max(800, Math.floor(width * 2.2))
+                                    root.plotControllerObj.displayPointBudget = Math.max(600, Math.floor(width * 1.6))
                                 }
 
                                 theme: GraphsTheme {

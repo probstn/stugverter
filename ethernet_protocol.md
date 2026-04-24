@@ -52,12 +52,13 @@ Request payload: empty (`Length = 0`)
 
 If `Length != 0`, the device responds with `Error-Resp (0x8F)` and error code `0x03`.
 
-Response (`0x80`) payload is repeated dictionary records (24 bytes each):
+Response (`0x80`) payload is repeated dictionary records (25 bytes each):
 
 | Field | Size | Description |
 | :--- | :--- | :--- |
 | Address | 2 Bytes | Register address |
 | Ctrl | 1 Byte | Bits 0-3 type, bits 4-5 access, bits 6-7 reserved |
+| Group ID | 1 Byte | Logical parameter grouping identifier |
 | Name | 16 Bytes | Space-padded ASCII |
 | Unit | 5 Bytes | Space-padded ASCII |
 
@@ -223,3 +224,15 @@ Use this checklist when implementing the PC/host side to ensure interoperability
 - Use a single active TCP control connection; opening a new one replaces the previous client.
 - Be prepared for response chunking and asynchronous stream packets.
 - Re-send stream subscriptions after reconnect.
+
+## 8. Control Mode Register Conventions
+
+The firmware exposes runtime control mode and speed setpoint as live-write setpoints:
+
+- `CTRL_MODE` (`u8`, access `Write Live`):
+  - `0`: Current control mode (host writes `ID_REF` / `IQ_REF` directly)
+  - `1`: Speed control mode (Core 1 speed loop writes `IQ_REF` from speed PI)
+- `SPEED_SET` (`f32`, unit `rpm`, access `Write Live`):
+  - Mechanical speed setpoint used when `CTRL_MODE = 1`
+
+`SPEED_RPM` and `SPD_IQ_REF` are provided as read-only telemetry for monitoring and streaming.
